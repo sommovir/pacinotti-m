@@ -13,13 +13,15 @@ public class Persona {
     
     private String nome;
     private String cognome;
+    private int age;
 
     public Persona() {
     }
 
-    public Persona(String nome, String cognome) {
+    public Persona(String nome, String cognome, int age) {
         this.nome = nome;
         this.cognome = cognome;
+        this.age = age;
     }
 
     public String getNome() {
@@ -38,7 +40,13 @@ public class Persona {
         this.cognome = cognome;
     }
 
-    
-    
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     
 }
