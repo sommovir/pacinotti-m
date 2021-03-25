@@ -5,7 +5,9 @@
  */
 package it.cnr.paci.j4p;
 
-import it.cnr.paci.j4p.lesson2.incapsulamento.Persona;
+import it.cnr.paci.j4p.lesson2.esercizi.Book;
+import it.cnr.paci.j4p.lesson2.incapsulamento.Soldier;
+import it.cnr.paci.j4p.lesson2.incapsulamento.Weapon;
 
 /**
  *
@@ -18,11 +20,19 @@ public class Main {
         
         //Lesson 2
         
-        Persona luca = new Persona("Luca", "Coraci",36);
-        Persona nicola = new Persona("Nicola", "Francario",17);
+        Weapon pistol = new Weapon(6, 2);
+        Weapon gun = new Weapon(40, 4);
         
-        System.out.println("Luca ha cognome: "+luca.getCognome());
-        System.out.println("Nicola ha cognome: "+nicola.getCognome());
+        Soldier poveroSoldato = new Soldier(20, "Ryan", pistol);
+        Soldier bigGym = new Soldier(20, "Gym", gun);
+        
+        System.out.println("Ryan ["+poveroSoldato.getHp()+"]   VS   Gym["+bigGym.getHp()+"]");
+        System.out.println("Turn 1: Ryan shots and hit Gym");
+        poveroSoldato.fire(bigGym);
+        System.out.println("Ryan ["+poveroSoldato.getHp()+"]   VS   Gym["+bigGym.getHp()+"]");
+        System.out.println("Turn 2: Gym shots and hit Ryan");
+        bigGym.fire(poveroSoldato);
+        System.out.println("Ryan ["+poveroSoldato.getHp()+"]   VS   Gym["+bigGym.getHp()+"]");
         
         //======================================================================
         

@@ -6,7 +6,7 @@
 package it.cnr.paci.j4p.lesson2.esercizi;
 
 /**
- *
+ * Esercizio 2A. Limitarsi alla creazione del costruttore vuoto, di quello con argomenti e dei getter & setter. 
  * @author Luca
  */
 public class Author {
@@ -14,28 +14,25 @@ public class Author {
     private String name;
     private String surname;
 
-    public Author() {
-    }
 
     public Author(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
+        
     }
 
     public String getName() {
-        return name;
+        return "ciao";
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = this.surname;
     }
 
     public String getSurname() {
-        return surname;
+        return "Rossi";
     }
 
     public void setSurname(String surname) {
-        this.surname = surname;
+        
     }
     
 }

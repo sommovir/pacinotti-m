@@ -12,6 +12,7 @@ package it.cnr.paci.j4p.lesson1;
 public class Test {
     
     public static void main(String[] args) {
+        //per generare il System.out.. automaticamente, digitare sout e poi senza fare altro, premere TAB
         System.out.println("Ciao a tutti");
     }
     
