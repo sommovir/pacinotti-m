@@ -9,6 +9,7 @@ import it.cnr.paci.j4p.lesson2.esercizi.Author;
 import it.cnr.paci.j4p.lesson2.esercizi.Book;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestInfo;
@@ -18,7 +19,7 @@ import org.junit.jupiter.api.TestMethodOrder;
  *
  * @author sommovir
  */
-//@Disabled
+@Disabled
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
 public class Lesson2UnitTest {
 
