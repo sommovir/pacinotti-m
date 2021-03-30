@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.cnr.paci.j4p.lesson3.esercizi;
+package it.cnr.paci.j4p.lesson3.esercizi.stringhe;
 
 /**
  *
@@ -21,8 +21,8 @@ public class L3_TesterGUI extends javax.swing.JFrame {
         this.setTitle("Esercizio 3 - Tester GUI");
         this.setLocationRelativeTo(null);
     }
-    
-    public void clear(){
+
+    public void clear() {
         this.jLabel_error.setVisible(false);
         this.jLabel_success.setVisible(false);
     }
@@ -159,33 +159,35 @@ public class L3_TesterGUI extends javax.swing.JFrame {
         String password = new String(this.jPasswordField_pass.getPassword());
         String name;
         String surname;
-        if(RegistrationManager.isNameSurnameValid(namesurname)){
+        if (RegistrationManager.isNameSurnameValid(namesurname)) {
             name = RegistrationManager.parseNameFrom(namesurname);
             surname = RegistrationManager.parseSurnameFrom(namesurname);
-        }else{
+        } else {
             this.jLabel_error.setVisible(true);
             this.jLabel_error.setText("il nome e cognome non sono ben inseriti");
             return;
         }
-        if(!RegistrationManager.isPhoneNumberValid(phoneNumber)){
+        if (!RegistrationManager.isPhoneNumberValid(phoneNumber)) {
             this.jLabel_error.setVisible(true);
             this.jLabel_error.setText("il numero di telefono non è valido");
             return;
         }
-        if(!RegistrationManager.isUsernameAlreadyInUse(username)){
+        if (RegistrationManager.isUsernameAlreadyInUse(username)) {
             this.jLabel_error.setVisible(true);
             this.jLabel_error.setText("quest'username è già in uso");
             return;
         }
-        if(!RegistrationManager.isPasswordValid(password)){
+        if (!RegistrationManager.isPasswordValid(password)) {
             this.jLabel_error.setVisible(true);
             this.jLabel_error.setText("password invalida");
             return;
         }
         Account account = new Account(name, surname, username, password);
         RegistrationManager.addAccount(account);
+        this.jLabel_success.setText("Account creato con successo!");
+        this.jLabel_success.setVisible(true);
         
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

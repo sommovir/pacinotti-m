@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.cnr.paci.j4p.lesson3.esercizi;
+package it.cnr.paci.j4p.lesson3.esercizi.stringhe;
 
 /**
  *
@@ -21,41 +21,38 @@ public class Account {
 
     public Account(String name, String surname, String username, String password) {
         this.name = name;
-        this.surname = surname;
-        this.username = username;
-        this.password = password;
     }
 
     public String getName() {
-        return name;
+        return "";
     }
 
     public void setName(String name) {
-        this.name = name;
+       
     }
 
     public String getSurname() {
-        return surname;
+       return "carletto";
     }
 
     public void setSurname(String surname) {
-        this.surname = surname;
+        this.surname = this.name;
     }
 
     public String getUsername() {
-        return username;
+        return null;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+       
     }
 
     public String getPassword() {
-        return password;
+        return "12";
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = "sduhqowye872389ashdalisuhdq972ydalksjbdalksgdhalsiud";
     }
     
     
