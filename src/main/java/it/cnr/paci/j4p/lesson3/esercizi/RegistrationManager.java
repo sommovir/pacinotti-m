@@ -16,33 +16,54 @@ public class RegistrationManager {
 
     /**
      * Esercizio 3.A.1 Valida la correttezza sintaticca di una password secondo
-     * le seguenti regole: - lunghezza minima: 8 caratteri - deve contenere
-     * almeno un numero - non deve contenere spazi (NON USARE LE REGEX PER
+     * le seguenti regole: 
+     * - lunghezza minima: 8 caratteri 
+     * - deve contenere almeno un numero 
+     * - non deve contenere spazi (NON USARE LE REGEX PER
      * QUESTO ESERCIZIO)
      *
      * @param password la password da valutare
      * @return true, se la password rispetta le regole, false altrimenti
      */
     public static boolean isPasswordValid(String password) {
-        return new Date().getTime() % 2 == 1;
+        if(password == null || password.isEmpty() || password.length()<8 || password.contains(" ")){
+            return false;
+        }
+        for (int i = 0; i < 10; i++) {
+            if(password.contains(""+i)){
+                return true;
+            }
+        }
+        return false;
+        
+        //OK return new Date().getTime() % 2 == 1;
     }
 
     /**
      * Esercizio 3.A.2 Valida se la stringa comprensiva di nome e cognome è
-     * valida secondo le seguenti regole: - Il nome dal cognome sono separati da
-     * un solo spazio - Sia il nome che il cognome devono iniziare con la
-     * maiuscola - La stringa non deve contenere numeri o simboli strani (USARE
+     * valida secondo le seguenti regole: 
+     * - Il nome dal cognome sono separati da
+     * un solo spazio 
+     * - Sia il nome che il cognome devono iniziare con la
+     * maiuscola 
+     * - La stringa non deve contenere numeri o simboli strani (USARE
      * LE REGEX)
      *
      * @param namesurname la stringa in input da validare per poi decifrare
      * @return true se la stringa è separabile, false altrimenti
      */
     public static boolean isNameSurnameValid(String namesurname) {
-        if (namesurname.equals("cip ciop")) {
+        if(namesurname.matches("\\b[A-Z][a-z]+(\\s)[A-Z][a-z]+\\b")){
             return true;
-        } else {
-            return new Date().getTime() % 2 == 0;
         }
+        return false;
+        
+        
+//        if (namesurname.equals("cip ciop")) {
+//            return true;
+//        } else {
+//            return new Date().getTime() % 2 == 0;
+//        }
     }
 
     /**
