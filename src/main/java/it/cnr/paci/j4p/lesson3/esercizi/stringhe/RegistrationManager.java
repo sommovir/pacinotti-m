@@ -118,7 +118,7 @@ public class RegistrationManager {
     /**
      * Esercizio 3.A.8 Aggiunge un account i cui parametri sono stati già
      * validati
-     *
+     * Tuttavia bisogna controllare che non venga inserito un account nullo o con parametri come stringhe vuote.
      * @param account Un account con tutti i dati già validati
      */
     public static void addAccount(Account account) {

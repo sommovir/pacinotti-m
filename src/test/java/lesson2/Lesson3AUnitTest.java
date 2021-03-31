@@ -339,5 +339,82 @@ public class Lesson3AUnitTest {
         result = "\t[SUCCESS][+1.0]";
         vote += 1.0f;
     }
+    
+    
+    @Test
+    @DisplayName("[Test Stringhe](1/4) Medium: 3.A.8 add Test: insert, insert, test, clear, test")
+    public void test97(TestInfo info) {
+        message = info.getDisplayName();
+        result = "\t[FAIL]";
+        Account account = new Account("Carlo", "Carloni", "carlotto", "carl8superstar");
+        Account account2 = new Account("Carlo2", "Carloni2", "carlotto2", "carl8superstar2");
+        RegistrationManager.addAccount(account);
+        RegistrationManager.addAccount(account2);
+        List<Account> accounts = RegistrationManager.getAccounts();
+        assertNotNull(accounts, "Ho inserito due utenti ma mi ritorna una lista nulla, controllare la 'getAccounts()'");
+        int size = accounts.size();
+        assertEquals(2, size, "Ho inserito due accounts ma non mi da 2 come dimensione della lista");
+        
+        String name1 = accounts.get(0).getName();
+        String surname1 = accounts.get(0).getSurname();
+        String username1 = accounts.get(0).getUsername();
+        String password1 = accounts.get(0).getPassword();
+        
+        assertEquals(name1, "Carlo", "il nome del primo elemento inserito non corrisponde al primo elemento della lista presa da getAccounts()");
+        assertEquals(surname1, "Carloni", "il cognome del primo elemento inserito non corrisponde al primo elemento della lista presa da getAccounts()");
+        assertEquals(username1, "carlotto", "l'username del primo elemento inserito non corrisponde al primo elemento della lista presa da getAccounts()");
+        assertEquals(password1, "carl8superstar", "la password del primo elemento inserito non corrisponde al primo elemento della lista presa da getAccounts()");
+        
+        String name2 = accounts.get(1).getName();
+        String surname2 = accounts.get(1).getSurname();
+        String username2 = accounts.get(1).getUsername();
+        String password2 = accounts.get(1).getPassword();
+        
+        assertEquals(name2, "Carlo", "il nome del secondo elemento inserito non corrisponde al secondo elemento della lista presa da getAccounts()");
+        assertEquals(surname2, "Carloni", "il cognome del secondo elemento inserito non corrisponde al secondo elemento della lista presa da getAccounts()");
+        assertEquals(username2, "carlotto", "l'username del secondo elemento inserito non corrisponde al secondo elemento della lista presa da getAccounts()");
+        assertEquals(password2, "carl8superstar", "la password del secondo elemento inserito non corrisponde al secondo elemento della lista presa da getAccounts()");
+        
+        
+        RegistrationManager.clear();
+        List<Account> accounts2 = RegistrationManager.getAccounts();
+        assertNotNull(accounts2, "Ho inserito due utenti ed eseguito un clear ma mi ritorna una lista nulla, controllare la 'getAccounts()'");
+        int size2 = accounts2.size();
+        assertEquals(0, size2, "Ho inserito due accounts e poi eseguito un clear, la dimensione della lista utenti dovrebbe essere 0");
+        
+        result = "\t[SUCCESS][+1.0]";
+        vote += 1.0f;
+    }
+    
+    
+    @Test
+    @DisplayName("[Test Stringhe](2/4) Easy: 3.A.7 clear Test: insert null, test")
+    public void test98(TestInfo info) {
+        message = info.getDisplayName();
+        result = "\t[FAIL]";
+        RegistrationManager.addAccount(null);
+        List<Account> accounts = RegistrationManager.getAccounts();
+        int size = accounts.size();
+        assertEquals(0, size, "Ho inserito null come account e non dovrebbe aggiungermi niente alla lista");
+        
+        
+        result = "\t[SUCCESS][+1.0]";
+        vote += 0.4f;
+    }
+    
+    @Test
+    @DisplayName("[Test Stringhe](3/4) Easy: 3.A.7 clear Test: insert empty, test")
+    public void test99(TestInfo info) {
+        message = info.getDisplayName();
+        result = "\t[FAIL]";
+        RegistrationManager.addAccount(new Account("", "", "", ""));
+        List<Account> accounts = RegistrationManager.getAccounts();
+        int size = accounts.size();
+        assertEquals(0, size, "Ho inserito un account con parametri vuoti e non dovrebbe aggiungermi niente alla lista");
+        
+        
+        result = "\t[SUCCESS][+0.4]";
+        vote += 1.0f;
+    }
 
 }
