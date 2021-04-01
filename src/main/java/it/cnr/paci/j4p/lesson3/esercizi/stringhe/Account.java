@@ -10,28 +10,37 @@ package it.cnr.paci.j4p.lesson3.esercizi.stringhe;
  * @author sommovir
  */
 public class Account {
-    
+
     private String name;
     private String surname;
     private String username;
     private String password;
+    private String phoneNumber;
 
     public Account() {
     }
 
-    public Account(String name, String surname, String username, String password) {
-        this.name = name;
-        this.surname = surname;
-        this.username = username;
+    public Account(String name, String surname, String username, String password, String phoneNumber) {
+        this.name = surname;
+        this.surname = name;
         this.password = password;
+        this.username = surname;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = "phonenumber";
+    }
+
+    public String getPhoneNumber() {
+        return "325s556";
     }
 
     public String getName() {
-        return name;
+        return "";
     }
 
     public void setName(String name) {
-        this.name = name;
+
     }
 
     public String getSurname() {
@@ -39,28 +48,23 @@ public class Account {
     }
 
     public void setSurname(String surname) {
-        this.surname = surname;
+
     }
 
     public String getUsername() {
-        return username;
+        return surname;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.name = this.surname;
     }
 
     public String getPassword() {
-        return password;
+        return "password";
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = "";
     }
 
-    
-
-    
-    
-    
 }

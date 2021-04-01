@@ -22,7 +22,7 @@ import org.junit.jupiter.api.TestMethodOrder;
  *
  * @author sommovir
  */
-@Disabled
+//@Disabled
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
 public class Lesson3AUnitTest {
 
@@ -74,8 +74,8 @@ public class Lesson3AUnitTest {
         result = "\t\t\t[FAIL]";
         assertFalse(p1, "Non è gestito l'inserimento di una password nulla");
         assertFalse(p2, "Non è gestito l'inserimento di una password vuota");
-        result = "\t\t\t[SUCCESS][+0.2]";
-        vote += 0.2f;
+        result = "\t\t\t[SUCCESS][+0.5]";
+        vote += 0.5f;
     }
 
     @Test
@@ -95,8 +95,8 @@ public class Lesson3AUnitTest {
         assertTrue(p4, "La lunghezza della password è il minimo indispensabile ma il metodo non l'accetta lo stesso");
         assertTrue(p5, "La password è lunga a sufficienza ma non viene accettata");
         assertTrue(p6, "La password è lunga a sufficienza ma non viene accettata");
-        result = "\t\t\t\t\t[SUCCESS][+0.3]";
-        vote += 0.3f;
+        result = "\t\t\t\t\t[SUCCESS][+0.6]";
+        vote += 0.6f;
     }
 
     @Test
@@ -119,8 +119,8 @@ public class Lesson3AUnitTest {
         assertTrue(p6, "La password contiene numeri ma non viene accettata :(");
         assertFalse(p2, "La password non contiene numero ma invece viene validata");
 
-        result = "\t\t\t\t[SUCCESS][+0.7]";
-        vote += 0.7f;
+        result = "\t\t\t\t[SUCCESS][+1.0]";
+        vote += 1.0f;
     }
 
     @Test
@@ -139,8 +139,8 @@ public class Lesson3AUnitTest {
         assertFalse(p4, "La password contiene spazi ma viene accettata :(");
         assertTrue(p5, "La password non contiene spazi ma non viene accettata :(");
 
-        result = "\t\t\t\t[SUCCESS][+0.2]";
-        vote += 0.2f;
+        result = "\t\t\t\t[SUCCESS][+1.0]";
+        vote += 1.0f;
     }
 
     @Test
@@ -157,8 +157,8 @@ public class Lesson3AUnitTest {
         assertFalse(p3, "La stringa contiene due spazi ma la stringa è accettata");
         assertFalse(p3, "La stringa non contiene spazi ma viene accettata");
 
-        result = "\t\t\t[SUCCESS][+0.2]";
-        vote += 0.2f;
+        result = "\t\t\t[SUCCESS][+1.1]";
+        vote += 1.1f;
     }
 
     @Test
@@ -171,8 +171,8 @@ public class Lesson3AUnitTest {
         assertFalse(p1, "il nome-cognome contiene uno spazio ma all'inizio della stringa");
         assertFalse(p2, "il nome-cognome contiene uno spazio ma alla fine della stringa");
 
-        result = "[SUCCESS][+1.0]";
-        vote += 1f;
+        result = "[SUCCESS][+1.2]";
+        vote += 1.2f;
     }
 
     @Test
@@ -189,8 +189,8 @@ public class Lesson3AUnitTest {
         assertFalse(p2, "il nome-cognome contiene una minuscola sul cognome");
         assertTrue(p4, "il nome-cognome è corretto ma non viene validato");
 
-        result = "\t[SUCCESS][+0.5]";
-        vote += 0.5f;
+        result = "\t[SUCCESS][+1.0]";
+        vote += 1.2f;
     }
 
     @Test
@@ -200,8 +200,8 @@ public class Lesson3AUnitTest {
         message = info.getDisplayName();
         result = "\t\t\t\t\t\t[FAIL]";
         assertEquals(luca, "Luca", "il nome non viene correttamente estrapolato");
-        result = "\t\t\t\t\t\t[SUCCESS][+0.3]";
-        vote += 0.3f;
+        result = "\t\t\t\t\t\t[SUCCESS][+0.8]";
+        vote += 0.8f;
     }
 
     @Test
@@ -211,8 +211,8 @@ public class Lesson3AUnitTest {
         message = info.getDisplayName();
         result = "\t\t\t\t\t\t[FAIL]";
         assertEquals(coraci, "Coraci", "il cognome non viene correttamente estrapolato");
-        result = "\t\t\t\t\t\t[SUCCESS][+0.3]";
-        vote += 0.3f;
+        result = "\t\t\t\t\t\t[SUCCESS][+0.8]";
+        vote += 0.8f;
     }
 
     @Test
@@ -224,8 +224,8 @@ public class Lesson3AUnitTest {
         boolean p2 = RegistrationManager.isPhoneNumberValid(null);
         assertTrue(p1, "Il numero è una stringa vuota ma non viene accettato");
         assertTrue(p2, "Il numero è una riferimento nullo ma non viene accettato");
-        result = "\t\t[SUCCESS][+0.3]";
-        vote += 0.3f;
+        result = "\t\t[SUCCESS][+0.5]";
+        vote += 0.7f;
     }
 
     @Test
@@ -251,8 +251,8 @@ public class Lesson3AUnitTest {
         assertFalse(p6, "questo numero è stato accettato, fatti delle domande: [ 328574541]");
         assertFalse(p7, "questo numero è stato accettato, fatti delle domande: [ 3253562]");
 
-        result = "\t\t[SUCCESS][+0.8]";
-        vote += 0.3f;
+        result = "\t\t[SUCCESS][+2.2]";
+        vote += 2.2f;
     }
 
     @Test
@@ -274,8 +274,8 @@ public class Lesson3AUnitTest {
         assertFalse(p4, "questo numero è stato accettato, fatti delle domande: [393285550588]");
         assertFalse(p5, "questo numero è stato accettato, fatti delle domande: [++393332222222]");
 
-        result = "\t\t[SUCCESS][+2.0]";
-        vote += 2.0f;
+        result = "\t\t[SUCCESS][+3.0]";
+        vote += 3.0f;
     }
 
     @Test
@@ -283,9 +283,9 @@ public class Lesson3AUnitTest {
     public void test94(TestInfo info) {
         message = info.getDisplayName();
         result = "\t\t[FAIL]";
-        Account account = new Account("Carlo", "Carloni", "carlotto", "carl8superstar");
+        Account account = new Account("Carlo", "Carloni", "carlotto", "carl8superstar",null);
         boolean p1 = RegistrationManager.isUsernameAlreadyInUse("carlotto");
-        RegistrationManager.addAccount(account);
+        RegistrationManager.register(account);
         boolean p2 = RegistrationManager.isUsernameAlreadyInUse("carlotto");
         boolean p3 = RegistrationManager.isUsernameAlreadyInUse("carlotto2");
 
@@ -293,8 +293,8 @@ public class Lesson3AUnitTest {
         assertTrue(p2, "dopo aver inserito un account, riprovo con lo stesso username e dovrebbe dirmi che è già in uso");
         assertFalse(p3, "dopo aver inserito un account, riprovo con un username diverso e mi dovrebbe dire che non è in uso");
 
-        result = "\t\t[SUCCESS][+1.0]";
-        vote += 1.0f;
+        result = "\t\t[SUCCESS][+1.6]";
+        vote += 1.6f;
     }
 
     @Test
@@ -302,9 +302,9 @@ public class Lesson3AUnitTest {
     public void test95(TestInfo info) {
         message = info.getDisplayName();
         result = "\t[FAIL]";
-        Account account = new Account("Carlo", "Carloni", "carlotto", "carl8superstar");
+        Account account = new Account("Carlo", "Carloni", "carlotto", "carl8superstar",null);
         boolean p1 = RegistrationManager.isUsernameAlreadyInUse("carlotto"); //false
-        RegistrationManager.addAccount(account);
+        RegistrationManager.register(account);
         boolean p2 = RegistrationManager.isUsernameAlreadyInUse("carlotto"); //true
         RegistrationManager.clear();
         boolean p3 = RegistrationManager.isUsernameAlreadyInUse("carlotto"); //false
@@ -313,8 +313,8 @@ public class Lesson3AUnitTest {
         assertTrue(p2, "dopo aver inserito un account, riprovo con lo stesso username e dovrebbe dirmi che è già in uso");
         assertFalse(p3, "dopo aver eseguito un clear, riprovo con lo stesso username precedente e dovrebbe dirmi che è disponibile, probabile errore nella clear");
 
-        result = "\t[SUCCESS][+1.0]";
-        vote += 1.0f;
+        result = "\t[SUCCESS][+1.7]";
+        vote += 1.7f;
     }
 
     @Test
@@ -322,10 +322,10 @@ public class Lesson3AUnitTest {
     public void test96(TestInfo info) {
         message = info.getDisplayName();
         result = "\t[FAIL]";
-        Account account = new Account("Carlo", "Carloni", "carlotto", "carl8superstar");
-        Account account2 = new Account("Carlo2", "Carloni2", "carlotto2", "carl8superstar2");
-        RegistrationManager.addAccount(account);
-        RegistrationManager.addAccount(account2);
+        Account account = new Account("Carlo", "Carloni", "carlotto", "carl8superstar",null);
+        Account account2 = new Account("Carlo2", "Carloni2", "carlotto2", "carl8superstar2",null);
+        RegistrationManager.register(account);
+        RegistrationManager.register(account2);
         List<Account> accounts = RegistrationManager.getAccounts();
         assertNotNull(accounts, "Ho inserito due utenti ma mi ritorna una lista nulla, controllare la 'getAccounts()'");
         int size = accounts.size();
@@ -336,20 +336,20 @@ public class Lesson3AUnitTest {
         int size2 = accounts2.size();
         assertEquals(0, size2, "Ho inserito due accounts e poi eseguito un clear, la dimensione della lista utenti dovrebbe essere 0");
         
-        result = "\t[SUCCESS][+1.0]";
-        vote += 1.0f;
+        result = "\t[SUCCESS][+2.0]";
+        vote += 2.0f;
     }
     
     
     @Test
-    @DisplayName("[Test Stringhe](1/4) Medium: 3.A.8 add Test: insert, insert, test, clear, test")
+    @DisplayName("[Test Stringhe](1/5) Medium: 3.A.8 add Test: insert, insert, test, clear, test")
     public void test97(TestInfo info) {
         message = info.getDisplayName();
-        result = "\t[FAIL]";
-        Account account = new Account("Carlo", "Carloni", "carlotto", "carl8superstar");
-        Account account2 = new Account("Carlo2", "Carloni2", "carlotto2", "carl8superstar2");
-        RegistrationManager.addAccount(account);
-        RegistrationManager.addAccount(account2);
+        result = "\t\t[FAIL]";
+        Account account = new Account("Carlo", "Carloni", "carlotto", "carl8superstar",null);
+        Account account2 = new Account("Carlo2", "Carloni2", "carlotto2", "carl8superstar2",null);
+        RegistrationManager.register(account);
+        RegistrationManager.register(account2);
         List<Account> accounts = RegistrationManager.getAccounts();
         assertNotNull(accounts, "Ho inserito due utenti ma mi ritorna una lista nulla, controllare la 'getAccounts()'");
         int size = accounts.size();
@@ -370,10 +370,10 @@ public class Lesson3AUnitTest {
         String username2 = accounts.get(1).getUsername();
         String password2 = accounts.get(1).getPassword();
         
-        assertEquals(name2, "Carlo", "il nome del secondo elemento inserito non corrisponde al secondo elemento della lista presa da getAccounts()");
-        assertEquals(surname2, "Carloni", "il cognome del secondo elemento inserito non corrisponde al secondo elemento della lista presa da getAccounts()");
-        assertEquals(username2, "carlotto", "l'username del secondo elemento inserito non corrisponde al secondo elemento della lista presa da getAccounts()");
-        assertEquals(password2, "carl8superstar", "la password del secondo elemento inserito non corrisponde al secondo elemento della lista presa da getAccounts()");
+        assertEquals(name2, "Carlo2", "il nome del secondo elemento inserito non corrisponde al secondo elemento della lista presa da getAccounts()");
+        assertEquals(surname2, "Carloni2", "il cognome del secondo elemento inserito non corrisponde al secondo elemento della lista presa da getAccounts()");
+        assertEquals(username2, "carlotto2", "l'username del secondo elemento inserito non corrisponde al secondo elemento della lista presa da getAccounts()");
+        assertEquals(password2, "carl8superstar2", "la password del secondo elemento inserito non corrisponde al secondo elemento della lista presa da getAccounts()");
         
         
         RegistrationManager.clear();
@@ -382,39 +382,143 @@ public class Lesson3AUnitTest {
         int size2 = accounts2.size();
         assertEquals(0, size2, "Ho inserito due accounts e poi eseguito un clear, la dimensione della lista utenti dovrebbe essere 0");
         
-        result = "\t[SUCCESS][+1.0]";
-        vote += 1.0f;
+        result = "\t\t[SUCCESS][+2.5]";
+        vote += 2.5f;
     }
     
     
     @Test
-    @DisplayName("[Test Stringhe](2/4) Easy: 3.A.7 clear Test: insert null, test")
+    @DisplayName("[Test Stringhe](2/5) Easy: 3.A.8 clear Test: insert null, test")
     public void test98(TestInfo info) {
         message = info.getDisplayName();
-        result = "\t[FAIL]";
-        RegistrationManager.addAccount(null);
+        result = "\t\t\t\t[FAIL]";
+        RegistrationManager.register(null);
         List<Account> accounts = RegistrationManager.getAccounts();
         int size = accounts.size();
         assertEquals(0, size, "Ho inserito null come account e non dovrebbe aggiungermi niente alla lista");
         
         
-        result = "\t[SUCCESS][+1.0]";
-        vote += 0.4f;
+        result = "\t\t\t\t[SUCCESS][+0.8]";
+        vote += 0.8f;
     }
     
     @Test
-    @DisplayName("[Test Stringhe](3/4) Easy: 3.A.7 clear Test: insert empty, test")
+    @DisplayName("[Test Stringhe](3/5) Easy: 3.A.8 clear Test: insert empty, test")
     public void test99(TestInfo info) {
         message = info.getDisplayName();
-        result = "\t[FAIL]";
-        RegistrationManager.addAccount(new Account("", "", "", ""));
+        result = "\t\t\t\t[FAIL]";
+        RegistrationManager.register(new Account("", "", "", "",null));
         List<Account> accounts = RegistrationManager.getAccounts();
         int size = accounts.size();
         assertEquals(0, size, "Ho inserito un account con parametri vuoti e non dovrebbe aggiungermi niente alla lista");
         
         
-        result = "\t[SUCCESS][+0.4]";
-        vote += 1.0f;
+        result = "\t\t\t\t[SUCCESS][1.5]";
+        vote += 1.5f;
+    }
+    
+    
+    @Test
+    @DisplayName("[Test Stringhe](4/5) Medium: 3.A.8 Incaps.: create account, compromise, ins, test")
+    public void test991(TestInfo info) {
+        message = info.getDisplayName();
+        result = "\t[FAIL]";
+        Account account = new Account("Mario", "Marionetti", "ma.ma", "ursula11",null);
+        account.setPassword("aaaaaaaaaaa");
+        account.setName(null);
+        account.setSurname("Marionettone");
+        RegistrationManager.register(account);
+        List<Account> accounts = RegistrationManager.getAccounts();
+        int size = accounts.size();
+        assertEquals(1, size, "Ho inserito un account ma non pare sia stato aggiunto");
+        String mario = accounts.get(0).getName();
+        String marionettone = accounts.get(0).getSurname();
+        String pass = accounts.get(0).getPassword();
+        
+        assertEquals(mario, "Mario", "Ho inserito un account con nome 'Mario', ma non l'ho più ritrovato così");
+        assertEquals(marionettone, "Marionettone", "Ho provato ad editare correttamente ilc ognome ma non si è aggiornato");
+        assertEquals(pass, "ursula11", "Ho provato a settare una password invalida e me l'ha fatta settare");
+        
+        
+        
+        result = "\t[SUCCESS][+1.7]";
+        vote += 1.7f;
+    }
+    
+    @Test
+    @DisplayName("[Test Stringhe](5/5) Medium: 3.A.8 Incaps.: create account, compromise, ins, test")
+    public void test992(TestInfo info) {
+        message = info.getDisplayName();
+        result = "\t[FAIL]";
+        Account account = new Account("Mario", "Marionetti", "ma.ma", "ursula11","3333332555");
+        account.setPassword("AB12345678999");
+        account.setName("Luca");
+        account.setSurname(null);
+        account.setPhoneNumber(null);
+        RegistrationManager.register(account);
+        List<Account> accounts = RegistrationManager.getAccounts();
+        int size = accounts.size();
+        assertEquals(1, size, "Ho inserito un account ma non pare sia stato aggiunto");
+        
+        String mario = accounts.get(0).getName();
+        String surname = accounts.get(0).getSurname();
+        String pass = accounts.get(0).getPassword();
+        String phone = accounts.get(0).getPhoneNumber();
+        
+        assertEquals(mario, "Luca", "Ho provato a editare il nome settandolo con una stringa vuota e me l'ha presa.");
+        assertEquals(surname, "Marionetti", "Ho provato ad editare il cognome inserendo una stringa nulla");
+        assertEquals(pass, "AB12345678999", "Ho provato a settare una password valida e non si è aggiornata");
+        assertNull(phone , "Ho provato settare il numero di telefono con null ma non si è annullato");
+        
+        result = "\t[SUCCESS][+2.1]";
+        vote +=2.1f;
+    }
+    
+    @Test
+    @DisplayName("[Test Stringhe](1/2) Medium: 3.A.10 retrieve.:  get, test")
+    public void test993(TestInfo info) {
+        message = info.getDisplayName();
+        result = "\t\t\t\t[FAIL]";
+
+        Account accountByUsername = RegistrationManager.getAccountByUsername(null);
+        Account accountByUsername2 = RegistrationManager.getAccountByUsername("");
+        Account accountByUsername3 = RegistrationManager.getAccountByUsername("redelmondo");
+        
+        assertNull(accountByUsername, "Ho cercato un username nullo e non mi ha dato un account nullo.");
+        assertNull(accountByUsername2, "Ho cercato un username vuoto e non mi ha dato un account nullo.");
+        assertNull(accountByUsername3, "Ho cercato un username inesistente e non mi ha dato un account nullo.");
+        
+        result = "\t\t\t\t[SUCCESS][+0.9]";
+        vote += 0.9f;
+    }
+    
+    @Test
+    @DisplayName("[Test Stringhe](2/2) Medium: 3.A.10 retrieve.: create, add, get, test")
+    public void test994(TestInfo info) {
+        message = info.getDisplayName();
+        result = "\t\t\t[FAIL]";
+        Account account = new Account("Mario", "Marionetti", "marzullo", "ursula11","3333332555");
+        RegistrationManager.register(account);
+        List<Account> accounts = RegistrationManager.getAccounts();
+        int size = accounts.size();
+        assertEquals(1, size, "Ho inserito un account ma non pare sia stato aggiunto");
+        
+        Account accountByUsername = RegistrationManager.getAccountByUsername("marzullo");
+        
+        String mario = accountByUsername.getName();
+        String surname = accountByUsername.getSurname();
+        String pass = accountByUsername.getPassword();
+        String phone = accountByUsername.getPhoneNumber();
+        String username = accountByUsername.getUsername();
+        
+        assertEquals(mario, "Mario", "L'account ritrovato dall'username non corrisponde nel nome");
+        assertEquals(surname, "Marionetti", "L'account ritrovato dall'username non corrisponde nel cognome");
+        assertEquals(pass, "ursula11", "L'account ritrovato dall'username non corrisponde nella password");
+        assertEquals(phone ,"3333332555", "L'account ritrovato dall'username non corrisponde nel numero di telefono");
+        assertEquals(username ,"marzullo", "L'account ritrovato dall'username non corrisponde nell'username");
+        
+        result = "\t\t\t[SUCCESS][+1.5]";
+        vote += 1.5f;
     }
 
 }

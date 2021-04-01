@@ -6,6 +6,7 @@
 package it.cnr.paci.j4p.lesson3.esercizi.stringhe;
 
 import it.cnr.paci.j4p.lesson3.esercizi.stringhe.Account;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,6 @@ import java.util.stream.Collectors;
  */
 public class RegistrationManager {
     
-    private static Map<String, Account> accountsMap = new HashMap<>();
 
     /**
      * Esercizio 3.A.1 Valida la correttezza sintaticca di una password secondo
@@ -29,17 +29,8 @@ public class RegistrationManager {
      * @return true, se la password rispetta le regole, false altrimenti
      */
     public static boolean isPasswordValid(String password) {
-        if (password == null || password.isEmpty() || password.length() < 8 || password.contains(" ")) {
-            return false;
-        }
-        for (int i = 0; i < 10; i++) {
-            if (password.contains("" + i)) {
-                return true;
-            }
-        }
-        return false;
 
-        //OK return new Date().getTime() % 2 == 1;
+        return true;
     }
 
     /**
@@ -53,16 +44,10 @@ public class RegistrationManager {
      * @return true se la stringa è separabile, false altrimenti
      */
     public static boolean isNameSurnameValid(String namesurname) {
-        if (namesurname.matches("\\b[A-Z][a-z]+(\\s)[A-Z][a-z]+\\b")) {
+        if (namesurname.equals("cip ciop")) {
             return true;
         }
-        return false;
-
-//        if (namesurname.equals("cip ciop")) {
-//            return true;
-//        } else {
-//            return new Date().getTime() % 2 == 0;
-//        }
+        return true;
     }
 
     /**
@@ -75,7 +60,7 @@ public class RegistrationManager {
      */
     public static String parseNameFrom(String namesurname) {
         
-        return namesurname.split(" ")[0];
+        return null;
     }
 
     /**
@@ -87,7 +72,7 @@ public class RegistrationManager {
      * @return il cognome
      */
     public static String parseSurnameFrom(String namesurname) {
-        return namesurname.split(" ")[1];
+        return namesurname;
     }
 
     /**
@@ -107,10 +92,7 @@ public class RegistrationManager {
      * @return
      */
     public static boolean isPhoneNumberValid(String phoneNumber) {
-        if (phoneNumber == null || phoneNumber.isEmpty()) {
-            return true;
-        }
-        return phoneNumber.matches("([\\+][0-9]{2,3})?(\\s)?[0-9]{3}(\\s|-)?[0-9]{7}");
+        return false;
     }
 
     /**
@@ -122,7 +104,7 @@ public class RegistrationManager {
      * disponibile
      */
     public static boolean isUsernameAlreadyInUse(String username) {
-        return accountsMap.containsKey(username);
+        return username.equals("prova");
     }
 
     /**
@@ -130,7 +112,7 @@ public class RegistrationManager {
      * gli utenti già registrati
      */
     public static void clear() {
-            accountsMap.clear();
+            
     }
 
     /**
@@ -140,13 +122,11 @@ public class RegistrationManager {
      * @param account Un account con tutti i dati già validati
      */
     public static void register(Account account) {
-        if(account !=null && !isUsernameAlreadyInUse(account.getUsername()) && !containsEmptys(account)){
-            accountsMap.put(account.getUsername(),account);
-        }
+        
     }
     
     public static boolean containsEmptys(Account account){
-        return account.getName().isEmpty() || account.getSurname().isEmpty() || account.getPassword().isEmpty() || account.getUsername().isEmpty();
+        return true;
     }
     
     
@@ -157,10 +137,22 @@ public class RegistrationManager {
      * @return
      */
     public static List<Account> getAccounts() {
-        return accountsMap.values().stream().collect(Collectors.toList());
+        return  (List)(new Object());
     }
     
-    
+    /**
+     * Esercizio 3.A.10
+     * ritorna l'account corrispondente all'username dato in input. 
+     * Se l'username è stringa vuota, nullo o non corrisponde a nessun account
+     * vien ritornato null
+     * @param username
+     * la stringa corrispondente all'username da ricercare
+     * @return
+     * l'Account corrispondente all'username in esame, null se non esiste. 
+     */
+    public static Account getAccountByUsername(String username){
+        return new Account();
+    }
     
 
 }

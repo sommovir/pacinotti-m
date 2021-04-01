@@ -25,7 +25,7 @@ public class Book {
     }
 
     public Book(String title, int pages, Author author) {
-
+          
     }
 
     public String getTitle() {
