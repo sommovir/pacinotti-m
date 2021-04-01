@@ -21,39 +21,46 @@ public class Account {
 
     public Account(String name, String surname, String username, String password) {
         this.name = name;
+        this.surname = surname;
+        this.username = username;
+        this.password = password;
     }
 
     public String getName() {
-        return "";
+        return name;
     }
 
     public void setName(String name) {
-       
+        this.name = name;
     }
 
     public String getSurname() {
-       return "carletto";
+        return surname;
     }
 
     public void setSurname(String surname) {
-        this.surname = this.name;
+        this.surname = surname;
     }
 
     public String getUsername() {
-        return null;
+        return username;
     }
 
     public void setUsername(String username) {
-       
+        this.username = username;
     }
 
     public String getPassword() {
-        return "12";
+        return password;
     }
 
     public void setPassword(String password) {
-        this.password = "sduhqowye872389ashdalisuhdq972ydalksjbdalksgdhalsiud";
+        this.password = password;
     }
+
+    
+
+    
     
     
 }

@@ -5,7 +5,7 @@
  */
 package it.cnr.paci.j4p.lesson3.esercizi.stringhe;
 
-import java.util.Date;
+import it.cnr.paci.j4p.lesson3.esercizi.stringhe.Account;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
  */
 public class RegistrationManager {
     
+    private static Map<String, Account> accountsMap = new HashMap<>();
 
     /**
      * Esercizio 3.A.1 Valida la correttezza sintaticca di una password secondo
@@ -28,8 +29,17 @@ public class RegistrationManager {
      * @return true, se la password rispetta le regole, false altrimenti
      */
     public static boolean isPasswordValid(String password) {
+        if (password == null || password.isEmpty() || password.length() < 8 || password.contains(" ")) {
+            return false;
+        }
+        for (int i = 0; i < 10; i++) {
+            if (password.contains("" + i)) {
+                return true;
+            }
+        }
+        return false;
 
-        return new Date().getTime() % 2 == 1;
+        //OK return new Date().getTime() % 2 == 1;
     }
 
     /**
@@ -43,12 +53,16 @@ public class RegistrationManager {
      * @return true se la stringa è separabile, false altrimenti
      */
     public static boolean isNameSurnameValid(String namesurname) {
-
-        if (namesurname.equals("cip ciop")) {
+        if (namesurname.matches("\\b[A-Z][a-z]+(\\s)[A-Z][a-z]+\\b")) {
             return true;
-        } else {
-            return new Date().getTime() % 2 == 0;
         }
+        return false;
+
+//        if (namesurname.equals("cip ciop")) {
+//            return true;
+//        } else {
+//            return new Date().getTime() % 2 == 0;
+//        }
     }
 
     /**
@@ -61,7 +75,7 @@ public class RegistrationManager {
      */
     public static String parseNameFrom(String namesurname) {
         
-        return "";
+        return namesurname.split(" ")[0];
     }
 
     /**
@@ -73,7 +87,7 @@ public class RegistrationManager {
      * @return il cognome
      */
     public static String parseSurnameFrom(String namesurname) {
-        return null;
+        return namesurname.split(" ")[1];
     }
 
     /**
@@ -93,7 +107,10 @@ public class RegistrationManager {
      * @return
      */
     public static boolean isPhoneNumberValid(String phoneNumber) {
-        return false;
+        if (phoneNumber == null || phoneNumber.isEmpty()) {
+            return true;
+        }
+        return phoneNumber.matches("([\\+][0-9]{2,3})?(\\s)?[0-9]{3}(\\s|-)?[0-9]{7}");
     }
 
     /**
@@ -101,10 +118,11 @@ public class RegistrationManager {
      *
      * @param l'username da valutare
      * @return true se l'username è già stato usato, false se è ancora
+     * 
      * disponibile
      */
     public static boolean isUsernameAlreadyInUse(String username) {
-        return true;
+        return accountsMap.containsKey(username);
     }
 
     /**
@@ -112,18 +130,26 @@ public class RegistrationManager {
      * gli utenti già registrati
      */
     public static void clear() {
-           
+            accountsMap.clear();
     }
 
     /**
      * Esercizio 3.A.8 Aggiunge un account i cui parametri sono stati già
      * validati
-     * Tuttavia bisogna controllare che non venga inserito un account nullo o con parametri come stringhe vuote.
+     * Tuttavia bisogna controllare che non venga inserito un account nullo o con parametri on opzionali come stringhe vuote.
      * @param account Un account con tutti i dati già validati
      */
-    public static void addAccount(Account account) {
-       
+    public static void register(Account account) {
+        if(account !=null && !isUsernameAlreadyInUse(account.getUsername()) && !containsEmptys(account)){
+            accountsMap.put(account.getUsername(),account);
+        }
     }
+    
+    public static boolean containsEmptys(Account account){
+        return account.getName().isEmpty() || account.getSurname().isEmpty() || account.getPassword().isEmpty() || account.getUsername().isEmpty();
+    }
+    
+    
 
     /**
      * Esercizio 3.A.9 Ritorna la lista di tutti gli account fin ora registrati
@@ -131,7 +157,10 @@ public class RegistrationManager {
      * @return
      */
     public static List<Account> getAccounts() {
-        return null;
+        return accountsMap.values().stream().collect(Collectors.toList());
     }
+    
+    
+    
 
 }

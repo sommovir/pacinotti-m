@@ -183,7 +183,7 @@ public class L3_TesterGUI extends javax.swing.JFrame {
             return;
         }
         Account account = new Account(name, surname, username, password);
-        RegistrationManager.addAccount(account);
+        RegistrationManager.register(account);
         this.jLabel_success.setText("Account creato con successo!");
         this.jLabel_success.setVisible(true);
         
