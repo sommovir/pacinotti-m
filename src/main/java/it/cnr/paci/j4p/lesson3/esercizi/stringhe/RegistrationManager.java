@@ -125,9 +125,6 @@ public class RegistrationManager {
         
     }
     
-    public static boolean containsEmptys(Account account){
-        return true;
-    }
     
     
 
