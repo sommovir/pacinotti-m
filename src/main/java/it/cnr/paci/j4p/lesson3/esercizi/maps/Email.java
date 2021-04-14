@@ -11,4 +11,43 @@ package it.cnr.paci.j4p.lesson3.esercizi.maps;
  */
 public class Email {
     
+    private String object;
+    private String message;
+    private long senderID;
+
+    public Email() {
+    }
+
+    public Email(String object, String message, long senderID) {
+        this.object = object;
+        this.message = message;
+        this.senderID = senderID;
+    }
+
+    public String getObject() {
+        return object;
+    }
+
+    public void setObject(String object) {
+        this.object = object;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public long getSenderID() {
+        return senderID;
+    }
+
+    public void setSenderID(long senderID) {
+        this.senderID = senderID;
+    }
+    
+    
+    
 }

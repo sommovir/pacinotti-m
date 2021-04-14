@@ -9,6 +9,10 @@ package it.cnr.paci.j4p.lesson3.esercizi.maps;
  *
  * @author Luca
  */
-public class EmailType {
+public enum EmailType {
     
+    SPAM,
+    ADVERTISE,
+    NORMAL
+            
 }
