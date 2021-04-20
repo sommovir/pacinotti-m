@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.cnr.paci.j4p.lesson4.ereditarieta;
+package it.cnr.paci.j4p.lesson4.ereditarieta.animale;
 
 /**
  *
