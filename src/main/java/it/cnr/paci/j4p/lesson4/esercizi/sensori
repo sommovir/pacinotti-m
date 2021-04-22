@@ -1,12 +1,11 @@
 
 
-
 Un azienda di domotica vuole implementare un tool per il controllo di numerosi 
 sensori e permettere all'utente tramite una GUI, di avere informazioni in tempo
 reale e per qualche sensore anche la possibilità di essere acceso o spento da 
-remoto. I sensori identificati da un id numerico, che si intendono modellare sono: 
+remoto. I sensori che si intendono modellare (identificati da un id numerico)sono: 
 
-PIR: rilevatore di movimento a infrarossi, restituisce true o false quando viene
+PIR: rilevatore di movimento a infrarossi, restituisce true quando viene
 rilevato del movimento
 
 DOOR_LOCK: consta di due parti che stanno a contatto. Quando il contatto fisico
@@ -20,11 +19,11 @@ REMOTE_BULB: consta di una semplice lampadina che però è possibile accendere e
 spegnere da remoto 
 
 REMOTE_ADVANCED_BULB: come il remote bulb ma con in aggiunta la possibilità di
-cambiare colore da remoto attraverso3 parametri interi RGB. 
+cambiare colore da remoto attraverso 3 parametri interi RGB. 
 
 
 Il team di sviluppo dell'interfaccia grafica desidera che sia possibile per 
-ogni sensore, avere dei dati circa in quale stanza della casa sono dislocati
+ogni sensore, avere dei dati tipo in quale stanza della casa sono dislocati
 e sullo stato attuale della batteria in percentuale di caricamento. 
 
 Si deve poi costruire una classe SensorManager che dia le seguenti informazioni
@@ -38,9 +37,11 @@ esponendo delle API come segue:
  - esporre un metodo nightMode con input boolean che se true, spegne tutte le
    fonti luminose, se false le lascia inalterate. 
  - esporre un metodo goodMorning senza parametri che rileva se ci sono 
-   REMOTE_BULB nelle varie camere da letto e le accende. 
+   REMOTE_BULB/REMOTE_ADVANCED_BULB nelle varie camere da letto e le accende. 
  - esporre un metodo red_alarm che setti in luce rossa tutti i REMOTE_ADVANCED_BULB 
    presenti
  - esporre un metodo che dato un id di un sensore POWER_PLUG lo setti off o on
    a seconda di un parametro booleano passato in argomento. 
+
+
 
