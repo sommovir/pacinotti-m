@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.cnr.paci.j4p.lesson5.eccezioni.example1;
+package it.cnr.paci.j4p.lesson5.eccezioni.example1.hidden;
 
 import java.awt.Color;
+import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -21,6 +23,7 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
+import javax.swing.JFrame;
 import javax.swing.Timer;
 import org.apache.commons.io.FileUtils;
 
@@ -32,8 +35,9 @@ public class FileManagerDialog extends javax.swing.JDialog {
 
     private long fileCount = 1;
     private int i = 0;
-    List<String> fileToDelete = new LinkedList<>();
+    //List<String> fileToDelete = new LinkedList<>();
     Timer timer = null;
+    Iterator it;
 
     /**
      * Creates new form FileManagerDialog
@@ -86,29 +90,29 @@ public class FileManagerDialog extends javax.swing.JDialog {
                     Logger.getLogger(FileManagerDialog.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
-                Iterator it = FileUtils.iterateFiles(new File(path), null, false);
-                //int delay = 0;
-
-                while (it.hasNext()) {
-                    String fileName = ((File) it.next()).getName();
-                    fileToDelete.add(fileName);
-                }
+                it = FileUtils.iterateFiles(new File(path), null, false);
+//                while (it.hasNext()) {
+//                    String fileName = ((File) it.next()).getName();
+//                    fileToDelete.add(fileName);
+//                }
                 //  delay += 150;
-                timer = new Timer(generateRandomNumber(80,150), new ActionListener() {
+                timer = new Timer(generateRandomNumber(80, 200), new ActionListener() {
 
                     @Override
                     public void actionPerformed(ActionEvent e2) {
-                        long progress = (100 * i) / fileToDelete.size();
-                        jLabel_log.setText("Deleting file: " + fileToDelete.get(i));
-                        jProgressBar1.setValue((int) progress);
-                        jProgressBar1.setString(""+progress+"%");
-                        i++;
-                        if (i == fileToDelete.size()) {
+                        if (!it.hasNext()) {
                             jProgressBar1.setValue(100);
                             jProgressBar1.setString("100%");
                             timer.stop();
                             jLabel_log.setForeground(Color.green);
                             jLabel_log.setText("All files have been deleted.");
+                        } else {
+                            String fileName = ((File) it.next()).getName();
+                            long progress = (100 * i) / fileCount;
+                            jLabel_log.setText("Deleting file: " + fileName);
+                            jProgressBar1.setValue((int) progress);
+                            jProgressBar1.setString("" + progress + "%");
+                            i++;
                         }
 
                     }
@@ -145,6 +149,11 @@ public class FileManagerDialog extends javax.swing.JDialog {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/it/cnr/paci/j4p/lesson5/eccezioni/example1/skull.png"))); // NOI18N
         jLabel2.setText("jLabel2");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel2MouseReleased(evt);
+            }
+        });
 
         jLabel_log_first.setFont(new java.awt.Font("Lucida Console", 1, 11)); // NOI18N
         jLabel_log_first.setForeground(new java.awt.Color(204, 0, 0));
@@ -158,15 +167,13 @@ public class FileManagerDialog extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel_log_first, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE))
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel_log, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel_log_first, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel_log, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -196,6 +203,14 @@ public class FileManagerDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseReleased
+        BlueScreenDialog dialog = new BlueScreenDialog(new JFrame(), true);
+        Rectangle r = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
+        dialog.setSize(r.width, r.height+60);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jLabel2MouseReleased
 
     /**
      * @param args the command line arguments
