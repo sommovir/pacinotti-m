@@ -129,7 +129,7 @@ public class FrontEndGUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String username = this.jTextField_username.getText();
         String password = new String(this.jPasswordField1.getPassword());
-        System.out.println("pass: "+password);
+        System.out.println("pass: " + password);
         User login = BackendManager.getInstance().login(username, password);
         if (login != null) {
             SuccessFrame frame = new SuccessFrame();

@@ -35,8 +35,9 @@ public class BlueScreenDialog extends javax.swing.JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("CIAO");
-                System.exit(0);
-                
+                BlueScreenDialog.this.setVisible(false);
+                BlueScreenDialog.this.dispose();
+
             }
         });
     }
@@ -124,7 +125,8 @@ public class BlueScreenDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_formKeyReleased
 
     private void jLabel2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseReleased
-        System.exit(0);
+        BlueScreenDialog.this.setVisible(false);
+        BlueScreenDialog.this.dispose();
     }//GEN-LAST:event_jLabel2MouseReleased
 
 

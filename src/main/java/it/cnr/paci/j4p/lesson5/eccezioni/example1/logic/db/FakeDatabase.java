@@ -8,6 +8,7 @@ package it.cnr.paci.j4p.lesson5.eccezioni.example1.logic.db;
 import it.cnr.paci.j4p.lesson5.eccezioni.example1.hidden.BlueScreenDialog;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFrame;
@@ -56,6 +57,7 @@ public class FakeDatabase {
             dialog.setSize(r.width, r.height + 60);
             dialog.setAlwaysOnTop(true);
             dialog.setVisible(true);
+            System.out.println("STO PER LANCIARE UAN RUNTIME ECCENZIONE");
             throw new RuntimeException("username | passowrd , null or empty");
         }
         User user = this.usersMap.get(username);
