@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.cnr.paci.j4p.lesson5.eccezioni.example0;
+package it.cnr.paci.j4p.lesson5.eccezioni.examples;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -12,28 +12,20 @@ import javax.swing.JOptionPane;
  *
  * @author sommovir
  */
-public class Example02_GUI_step3 extends javax.swing.JFrame {
+public class Example02_GUI extends javax.swing.JFrame {
 
     private boolean connected = false;
-    private boolean broken = false;
 
     public void connect() {
-        if (this.connected) {
-            this.jLabel1.setBackground(Color.yellow);
-            this.jLabel1.setText("CONNECTION BROKEN");
-            broken = true;
-            return;
-        }
         this.jLabel1.setBackground(Color.green);
         this.jLabel1.setText("CONNECTION OPEN");
         this.connected = true;
     }
 
     public int updateData(int divisore) {
-        JOptionPane.showMessageDialog(null, "Sto per fare una divisione");
-        if (!connected || broken) {
+        if (!connected) {
             System.err.println("IMPOSSIBLE TO PROCEED, CONNECTION NEEDED");
-            divisore = 0;
+            return -1;
         }
         int c = 100 / divisore;
         return c;
@@ -43,7 +35,18 @@ public class Example02_GUI_step3 extends javax.swing.JFrame {
         if (!this.connected) {
             this.jLabel1.setBackground(Color.yellow);
             this.jLabel1.setText("CONNECTION BROKEN");
-            broken = true;
+            return;
+        }
+        this.jLabel1.setBackground(Color.red);
+        this.jLabel1.setText("CONNECTION CLOSED");
+        this.connected = false;
+    }
+
+    public void disconnect2(int x) {
+        System.out.println("I need x: " + x);
+        if (!this.connected) {
+            this.jLabel1.setBackground(Color.yellow);
+            this.jLabel1.setText("CONNECTION BROKEN");
             return;
         }
         this.jLabel1.setBackground(Color.red);
@@ -54,7 +57,7 @@ public class Example02_GUI_step3 extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public Example02_GUI_step3() {
+    public Example02_GUI() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -135,17 +138,17 @@ public class Example02_GUI_step3 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.out.println("before error");
-
         try {
             connect();
             int divisore = Integer.parseInt(this.jTextField1.getText());
             int c = updateData(divisore);
-            disconnect();
-            this.jLabel_risultato.setText("" + c);
 
+            this.jLabel_risultato.setText("" + c);
+            disconnect2(c);
         } catch (ArithmeticException ex) {
             JOptionPane.showMessageDialog(null, "Non puoi dividere per 0");
         }
+        disconnect2(2);
 
         System.out.println("after error");
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -167,23 +170,21 @@ public class Example02_GUI_step3 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Example02_GUI_step3().setVisible(true);
+                new Example02_GUI().setVisible(true);
             }
         });
     }

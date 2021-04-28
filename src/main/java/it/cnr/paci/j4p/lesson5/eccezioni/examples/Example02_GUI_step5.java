@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.cnr.paci.j4p.lesson5.eccezioni.example0;
+package it.cnr.paci.j4p.lesson5.eccezioni.examples;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -12,18 +12,51 @@ import javax.swing.JOptionPane;
  *
  * @author sommovir
  */
-public class Example02_GUI_step2 extends javax.swing.JFrame {
+public class Example02_GUI_step5 extends javax.swing.JFrame {
+
+    private boolean connected = false;
+    private boolean broken = false;
+
+    public void connect() {
+        if (this.connected) {
+            this.jLabel1.setBackground(Color.yellow);
+            this.jLabel1.setText("CONNECTION BROKEN");
+            broken = true;
+            return;
+        }
+        this.jLabel1.setBackground(Color.green);
+        this.jLabel1.setText("CONNECTION OPEN");
+        this.connected = true;
+    }
 
     public int updateData(int divisore) {
         JOptionPane.showMessageDialog(null, "Sto per fare una divisione");
+        if (!connected || broken) {
+            System.err.println("IMPOSSIBLE TO PROCEED, CONNECTION NEEDED");
+            divisore = 0;
+        }
         int c = 100 / divisore;
         return c;
     }
 
+
+    //aggiunto questo metodo che si vuole usare invece del normale disconnect
+    //quando tutto ha successo
+    public void disconnect2(int divisore) {
+        System.out.println("I need x: " + divisore);
+        if (!this.connected) {
+            this.jLabel1.setBackground(Color.yellow);
+            this.jLabel1.setText("CONNECTION BROKEN");
+            return;
+        }
+        this.jLabel1.setBackground(Color.red);
+        this.jLabel1.setText("CONNECTION CLOSED");
+        this.connected = false;
+    }
     /**
      * Creates new form NewJFrame
      */
-    public Example02_GUI_step2() {
+    public Example02_GUI_step5() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -38,6 +71,7 @@ public class Example02_GUI_step2 extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel_risultato = new javax.swing.JLabel();
@@ -50,6 +84,11 @@ public class Example02_GUI_step2 extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jLabel1.setBackground(new java.awt.Color(255, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("CONNECTION CLOSED");
+        jLabel1.setOpaque(true);
 
         jLabel2.setText("risultato: ");
 
@@ -70,20 +109,27 @@ public class Example02_GUI_step2 extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel_risultato)))
-                .addContainerGap(279, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel_risultato))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel_risultato)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,13 +137,24 @@ public class Example02_GUI_step2 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.out.println("before error");
-        int divisore = Integer.parseInt(this.jTextField1.getText());
+
         try {
+            connect();
+            int divisore = Integer.parseInt(this.jTextField1.getText());
             int c = updateData(divisore);
+            
             this.jLabel_risultato.setText("" + c);
+            disconnect2(c); //questo va necessariamente qui perché ha bisogno del parametro c
+            //ma l'operazione che genera c può dare errore e non potrei mai chiamare questo metodo
+            //allora posso mettere il disconnect normale fuori  dal try-catch e tenere questo 
+            //in caso vada tutto bene
+
         } catch (ArithmeticException ex) {
-            JOptionPane.showMessageDialog(null, "Non puoi dividere per zero", "Errore", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Non puoi dividere per 0");
         }
+        disconnect2(0);
+        //x luca provare prima caso negativo
+        
 
         System.out.println("after error");
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -119,26 +176,31 @@ public class Example02_GUI_step2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI_step5.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI_step5.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI_step5.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI_step5.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Example02_GUI_step2().setVisible(true);
+                new Example02_GUI_step5().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel_risultato;
     private javax.swing.JTextField jTextField1;

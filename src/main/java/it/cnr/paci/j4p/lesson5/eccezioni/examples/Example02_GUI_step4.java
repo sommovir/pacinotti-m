@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.cnr.paci.j4p.lesson5.eccezioni.example0;
+package it.cnr.paci.j4p.lesson5.eccezioni.examples;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author sommovir
  */
-public class Example02_GUI_step6 extends javax.swing.JFrame {
+public class Example02_GUI_step4 extends javax.swing.JFrame {
 
     private boolean connected = false;
     private boolean broken = false;
@@ -51,24 +51,10 @@ public class Example02_GUI_step6 extends javax.swing.JFrame {
         this.connected = false;
     }
 
-    //aggiunto questo metodo che si vuole usare invece del normale disconnect
-    //quando tutto ha successo
-    public void disconnect2(int divisore) {
-        System.out.println("I need x: " + divisore);
-        if (!this.connected) {
-            this.jLabel1.setBackground(Color.yellow);
-            this.jLabel1.setText("CONNECTION BROKEN");
-            return;
-        }
-        this.jLabel1.setBackground(Color.red);
-        this.jLabel1.setText("CONNECTION CLOSED");
-        this.connected = false;
-    }
-
     /**
      * Creates new form NewJFrame
      */
-    public Example02_GUI_step6() {
+    public Example02_GUI_step4() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -149,26 +135,18 @@ public class Example02_GUI_step6 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.out.println("before error");
-        int c = 0;
+
         try {
             connect();
             int divisore = Integer.parseInt(this.jTextField1.getText());
-            c = updateData(divisore);
-
+            int c = updateData(divisore);
+            
             this.jLabel_risultato.setText("" + c);
-            //questo va necessariamente qui perché ha bisogno del parametro c
-            //ma l'operazione che genera c può dare errore e non potrei mai chiamare questo metodo
-            //allora posso mettere il disconnect normale fuori  dal try-catch e tenere questo 
-            //in caso vada tutto bene
 
         } catch (ArithmeticException ex) {
             JOptionPane.showMessageDialog(null, "Non puoi dividere per 0");
-            
         }
-        finally {
-            disconnect2(c);
-        }
-        //x luca provare prima caso negativo
+        disconnect(); //spostato questo metodo fuori dal try-catch
 
         System.out.println("after error");
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -190,20 +168,14 @@ public class Example02_GUI_step6 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI_step4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI_step4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI_step4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI_step4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -211,7 +183,7 @@ public class Example02_GUI_step6 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Example02_GUI_step6().setVisible(true);
+                new Example02_GUI_step4().setVisible(true);
             }
         });
     }

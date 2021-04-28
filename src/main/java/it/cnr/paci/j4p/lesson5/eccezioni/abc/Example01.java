@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.cnr.paci.j4p.lesson5.eccezioni.example0;
+package it.cnr.paci.j4p.lesson5.eccezioni.abc;
 
 /**
  *
