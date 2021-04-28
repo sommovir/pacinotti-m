@@ -14,14 +14,21 @@ public class Email {
     private String object;
     private String message;
     private long senderID;
+    private long id;
+    private boolean read=false;
 
     public Email() {
     }
 
-    public Email(String object, String message, long senderID) {
+    public Email(String object, String message, long senderID, long id) {
         this.object = object;
         this.message = message;
         this.senderID = senderID;
+        this.id = id;
+    }
+
+    public boolean isRead() {
+        return read;
     }
 
     public String getObject() {
@@ -32,7 +39,13 @@ public class Email {
         this.object = object;
     }
 
+    /**
+     * Quando viene estratto il contenuto di un messaggio, si considera letta
+     * l'email e la variabile read dovrà essere settata a true. 
+     * @return 
+     */
     public String getMessage() {
+        this.read = true;
         return message;
     }
 
@@ -47,7 +60,16 @@ public class Email {
     public void setSenderID(long senderID) {
         this.senderID = senderID;
     }
-    
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+   
     
     
 }
