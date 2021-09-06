@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.cnr.paci.j4p.lesson5.eccezioni.example0;
+package it.cnr.paci.j4p.lesson5.eccezioni.examples;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author sommovir
  */
-public class Example02_GUI_step4 extends javax.swing.JFrame {
+public class Example02_GUI_step3 extends javax.swing.JFrame {
 
     private boolean connected = false;
     private boolean broken = false;
@@ -54,7 +54,7 @@ public class Example02_GUI_step4 extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public Example02_GUI_step4() {
+    public Example02_GUI_step3() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -137,16 +137,18 @@ public class Example02_GUI_step4 extends javax.swing.JFrame {
         System.out.println("before error");
 
         try {
+            //prima di eseguire il metodo update ora c'è bisogno di fare una connect
+            //e poi per chiudere la connessione va chiamata una disconnect
+            //o la connessione rimarrà aperta
             connect();
             int divisore = Integer.parseInt(this.jTextField1.getText());
             int c = updateData(divisore);
-            
+            disconnect();
             this.jLabel_risultato.setText("" + c);
 
         } catch (ArithmeticException ex) {
             JOptionPane.showMessageDialog(null, "Non puoi dividere per 0");
         }
-        disconnect(); //spostato questo metodo fuori dal try-catch
 
         System.out.println("after error");
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -168,22 +170,23 @@ public class Example02_GUI_step4 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI_step3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI_step3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI_step3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Example02_GUI_step4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Example02_GUI_step3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
-
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Example02_GUI_step4().setVisible(true);
+                new Example02_GUI_step3().setVisible(true);
             }
         });
     }
