@@ -33,7 +33,7 @@ public class PasswordManager {
      * @return 
      */
     public int getWrongAttempts(){
-        return 0;
+        return -1;
     }
     
     /**
