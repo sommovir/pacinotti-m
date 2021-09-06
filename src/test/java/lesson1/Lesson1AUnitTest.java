@@ -155,7 +155,7 @@ public class Lesson1AUnitTest {
         String value = pm.checkPassword("antisgamo");
         wa = pm.getWrongAttempts();
         assertEquals(0, wa,"Ho subito inserito la password corretta e mi aspettavo "+wa);
-        assertEquals("SUCCESS", value,"Ho subito inserito la password corretta ma non mi ha ritornato il giusto valore");
+        assertEquals("CORRECT", value,"Ho subito inserito la password corretta ma non mi ha ritornato il giusto valore");
 
         result = "\t\t\t[SUCCESS][+3.0]";
         vote += 3.0f;
@@ -177,7 +177,7 @@ public class Lesson1AUnitTest {
         String value = pm.checkPassword("antisgamo");
         wa = pm.getWrongAttempts();
         assertEquals(0, wa,"Ho inserito la password corretta dopo due errori ma il contatore di passwrod segna ancora: "+wa+".  Mi hai molto deluso.");
-        assertEquals("SUCCESS", value,"Ho inserito la password corretta ma non mi ha ritornato il giusto valore");
+        assertEquals("CORRECT", value,"Ho inserito la password corretta ma non mi ha ritornato il giusto valore");
         result = "\t\t\t[SUCCESS][+5.0]";
         vote += 5.0f;
     }
@@ -198,8 +198,8 @@ public class Lesson1AUnitTest {
         String checkValue3 = pm.checkPassword("antisgamo");
         
         assertEquals("ERROR", checkValue1,"ho inserito una password errata ma non hai restituito il giusto valore di ritorno");
-        assertEquals("ERROR", checkValue1,"ho inserito una password errata ma non hai restituito il giusto valore di ritorno");
-        assertEquals("CORRECT", checkValue1,"ho inserito una password errata ma non hai restituito il giusto valore di ritorno");
+        assertEquals("ERROR", checkValue2,"ho inserito una password errata ma non hai restituito il giusto valore di ritorno");
+        assertEquals("CORRECT", checkValue3,"ho inserito una password giusta ma non hai restituito il giusto valore di ritorno");
 
         result = "\t\t\t\t[SUCCESS][+5.0]";
         vote += 5.0f;
