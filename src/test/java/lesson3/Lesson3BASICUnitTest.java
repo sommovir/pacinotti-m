@@ -135,7 +135,7 @@ public class Lesson3BASICUnitTest {
         
         postapay = null;
         Personcina p2 = new Personcina(null, null, 0, postapay);
-        Assumptions.assumeTrue(p2.getPostapay().equals(postapay));
+        Assumptions.assumeTrue(p2.getPostapay() == null);
         
         postapay = "1-2-3-4";
         Personcina p3 = new Personcina(null, null, 0, postapay);
