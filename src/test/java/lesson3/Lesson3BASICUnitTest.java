@@ -162,12 +162,12 @@ public class Lesson3BASICUnitTest {
         
         
         assertFalse(p.isPostaPayValid(),"Ho inserito il codice: "+p.getPostapay()+" e mi doveva dire che NON e' valido.. ");
-        assertFalse(p2.isPostaPayValid(),"Ho inserito il codice: "+p.getPostapay()+" e mi doveva dire che NON e' valido.. ");
-        assertFalse(p3.isPostaPayValid(),"Ho inserito il codice: "+p.getPostapay()+" e mi doveva dire che NON e' valido.. ");
-        assertFalse(p4.isPostaPayValid(),"Ho inserito il codice: "+p.getPostapay()+" e mi doveva dire che NON e' valido.. ");
-        assertFalse(p5.isPostaPayValid(),"Ho inserito il codice: "+p.getPostapay()+" e mi doveva dire che NON e' valido.. ");
-        assertFalse(p6.isPostaPayValid(),"Ho inserito il codice: "+p.getPostapay()+" e mi doveva dire che NON e' valido.. ");
-        assertFalse(p7.isPostaPayValid(),"Ho inserito il codice: "+p.getPostapay()+" e mi doveva dire che NON e' valido.. ");
+        assertFalse(p2.isPostaPayValid(),"Ho inserito il codice: "+p2.getPostapay()+" e mi doveva dire che NON e' valido.. ");
+        assertFalse(p3.isPostaPayValid(),"Ho inserito il codice: "+p3.getPostapay()+" e mi doveva dire che NON e' valido.. ");
+        assertFalse(p4.isPostaPayValid(),"Ho inserito il codice: "+p4.getPostapay()+" e mi doveva dire che NON e' valido.. ");
+        assertFalse(p5.isPostaPayValid(),"Ho inserito il codice: "+p5.getPostapay()+" e mi doveva dire che NON e' valido.. ");
+        assertFalse(p6.isPostaPayValid(),"Ho inserito il codice: "+p6.getPostapay()+" e mi doveva dire che NON e' valido.. ");
+        assertFalse(p7.isPostaPayValid(),"Ho inserito il codice: "+p7.getPostapay()+" e mi doveva dire che NON e' valido.. ");
         
         
 
