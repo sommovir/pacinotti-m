@@ -172,7 +172,7 @@ public class Lesson3TUTORUnitTest {
         assertEquals(INVALID, o3.getCommander(), "Ho inserito un nome commander invalido, e mi hai deluso non dicendomi che è INVALID");
         assertEquals(INVALID, o4.getCommander(), "Ho inserito un nome commander invalido, e mi hai deluso non dicendomi che è INVALID");
         assertEquals(INVALID, o5.getCommander(), "Ho inserito un nome commander invalido, e mi hai deluso non dicendomi che è INVALID");
-        assertEquals(INVALID, o6.getCommander(), "Ho inserito un nome commander invalido, e mi hai deluso non dicendomi che è INVALID");
+        assertEquals("Ten. Pollo", o6.getCommander(), "Ho inserito un nome commander valido, e mi hai deluso dicendomi che è INVALID");
         assertEquals(INVALID, o7.getCommander(), "Ho inserito un nome commander invalido, e mi hai deluso non dicendomi che è INVALID");
         assertEquals(INVALID, o8.getCommander(), "Ho inserito un nome commander invalido, e mi hai deluso non dicendomi che è INVALID");
         assertEquals(INVALID, o9.getCommander(), "Ho inserito un nome commander invalido, e mi hai deluso non dicendomi che è INVALID");
