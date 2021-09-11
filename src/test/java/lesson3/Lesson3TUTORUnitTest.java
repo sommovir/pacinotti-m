@@ -110,7 +110,7 @@ public class Lesson3TUTORUnitTest {
         assertEquals("NUCCUN5", o2.getOrder(), "Ho usato il costruttore con argomenti, ho passato valore valido [NUCCUN5] a order ma mi dice che è INVALID");
 
         MilitaryOrder o3 = new MilitaryOrder("Gen. Spugnonodrov", "moravi NUC 1a");
-        assertEquals("en. Spugnonodrov", o3.getCommander(), "Ho usato il costruttore con argomenti, ho passato valore valido [Gen. Spugnonodrov] a commander ma mi dice che è INVALID");
+        assertEquals("Gen. Spugnonodrov", o3.getCommander(), "Ho usato il costruttore con argomenti, ho passato valore valido [Gen. Spugnonodrov] a commander ma mi dice che è INVALID");
         assertEquals("moravi NUC 1a", o3.getOrder(), "Ho usato il costruttore con argomenti, ho passato valore valido [moravi NUC 1a] a order ma mi dice che è INVALID");
         result = "\t\t[SUCCESS][+6]";
         vote += 6f;
