@@ -167,7 +167,7 @@ public class Lesson3TUTORUnitTest {
         MilitaryOrder o8 = new MilitaryOrder("Asc. aPollo", null);
         MilitaryOrder o9 = new MilitaryOrder("ten. Pollo", null);
 
-        assertEquals(INVALID, o.getCommander(), "Ho inserito un nome commander invalido, e mi hai deluso non dicendomi che è INVALID");
+        assertEquals("Gen. Pollo", o.getCommander(), "Ho inserito un nome commander valido, e mi hai deluso dicendomi che è INVALID");
         assertEquals(INVALID, o2.getCommander(), "Ho inserito un nome commander invalido, e mi hai deluso non dicendomi che è INVALID");
         assertEquals(INVALID, o3.getCommander(), "Ho inserito un nome commander invalido, e mi hai deluso non dicendomi che è INVALID");
         assertEquals(INVALID, o4.getCommander(), "Ho inserito un nome commander invalido, e mi hai deluso non dicendomi che è INVALID");
