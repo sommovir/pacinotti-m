@@ -9,7 +9,7 @@ package it.cnr.paci.j4p.lesson3.esercizi.enums_parsing;
  * ESERCIZIO 3.C Questa classe fornisce una serie di metodi per parsare e
  * scomporre stringhe secondo la seguente sintassi:
  *
- * command -table (valore1,valore2):(valore1),(valore2:valore1) questo comando
+ * command -table (valore1,valore2):(valore1,valore2):(valore1) questo comando
  * descrive una tabella, le righe sono separate dal separatore : e ogni riga ha
  * i valori delle colonne separati dalla , e racchiusi dalle parentesi tonde
  * NOTA: i valori delle celle della tabella possono essere caratteri
@@ -140,7 +140,7 @@ public class EsercizioParsing {
      * ESERCIZIO 3.C.7 Restituisce il testo da sintetizzare. Il comando
      * restituirà il testo una volta estrapolato dal comando. Se alla fine del
      * comando però c'è l'opzione $m, allora il testo verrà rilasciato
-     * convertito tutto in maiuscolo. Ad esempio: command -speak ciao a tutti$m
+     * convertito tutto in maiuscolo. Ad esempio: command -text ciao a tutti$m
      * dovrà restituire: CIAO A TUTTI. NOTA: il comando si considera già
      * validato.
      *
