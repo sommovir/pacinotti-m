@@ -52,6 +52,10 @@ public class EsercizioParsing {
         if(command == CommandType.UNKNOWN){
             return true;
         }
+        
+        String numero = "22";
+        int trasformato = Integer.parseInt(numero);
+        
         return false;
     }
 
@@ -136,7 +140,7 @@ public class EsercizioParsing {
      * ESERCIZIO 3.C.7 Restituisce il testo da sintetizzare. Il comando
      * restituirà il testo una volta estrapolato dal comando. Se alla fine del
      * comando però c'è l'opzione $m, allora il testo verrà rilasciato
-     * convertito tutto in maiuscolo. Ad esempio: command -text ciao a tutti$m
+     * convertito tutto in maiuscolo. Ad esempio: command -speak ciao a tutti$m
      * dovrà restituire: CIAO A TUTTI. NOTA: il comando si considera già
      * validato.
      *
