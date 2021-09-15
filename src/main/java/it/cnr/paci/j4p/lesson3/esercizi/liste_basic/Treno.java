@@ -1,0 +1,104 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package it.cnr.paci.j4p.lesson3.esercizi.liste_basic;
+
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ * ESERCIZIO 3E 
+ * @author sommovir
+ */
+public class Treno {
+
+    private String nome;
+    private boolean highSpeed;
+    //INSTANZIARE
+    private List<Vagone> vagoni =null;
+
+    public Treno() {
+    }
+
+    public Treno(String nome, boolean highSpeed) {
+        this.nome = nome;
+        this.highSpeed = highSpeed;
+    }
+
+    /**
+     * ritorna il numero i vagoni del treno eccetto la locomotiva
+     * @return 
+     */
+    public int getNumeroVagoni() {
+        return 2;
+    }
+    
+    /**
+     * Un treno è valido se ha la locomotiva in testa e almeno un altro vagone
+     * @return 
+     */
+    public boolean isValid(){
+        return 1==2;
+    }
+    
+    /**
+     * ritorna true se a parte la locomotiva il treno ha tutti vagoni di tipo merci
+     * @return 
+     */
+    public boolean isTrenoMerci(){
+        return true;
+    }
+    
+    /**
+     * un treno è bidirezionale se ha una locomotiva sia in testa che in coda
+     * @return 
+     */
+    public boolean isBidirectional(){
+        return "".equals("");
+    }
+    
+    /**
+     * Controlla che il vagone sia valido. Se è valido lo aggiunge in coda al treno
+     * e ritorna true;
+     * Se non è valido ritorna false;
+     * @param vagone 
+     */
+    public boolean addVagone(Vagone vagone){
+        return false;
+    }
+    
+    /**
+     * Ritorna il primo vagone che continee la merce in argomento. Se la merce
+     * non è contenuta in nessun vagone, ritorna null.
+     * @param merce
+     * @return 
+     */
+    public Vagone searchMerce(String merce){
+        return null;
+    }
+    
+    /**
+     * Questo metodo scarica il treno, per i vagoni passeggeri nell'attributo 
+     * merce ci scrive "valige scaricate". Nei vagoni merci invece ci scrive
+     * "merce scaricata". 
+     */
+    public void scaricaTreno(){
+        
+    }
+    
+    /**
+     * Si crei un treno bidirezionale con 7 vagoni (oltre le locomotive) così composto:
+     * I primi 4 vagoni sono vagoni passeggeri.
+     * Poi abbiamo 2 vagoni merci contenenti come merce, "Cianfrusaglie"
+     * "Bombe a mano"
+     * Poi un vagone merci vuoto. 
+     * @param treno
+     * @return 
+     */
+    public Treno testMAIN(Treno treno){
+        return treno;
+    }
+
+}
