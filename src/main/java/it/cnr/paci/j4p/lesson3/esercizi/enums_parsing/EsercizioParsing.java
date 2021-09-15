@@ -9,7 +9,7 @@ package it.cnr.paci.j4p.lesson3.esercizi.enums_parsing;
  * ESERCIZIO 3.C Questa classe fornisce una serie di metodi per parsare e
  * scomporre stringhe secondo la seguente sintassi:
  *
- * command -table (valore1,valore2):(valore1),(valore2:valore1) questo comando
+ * command -table (valore1,valore2):(valore1,valore2):(valore1) questo comando
  * descrive una tabella, le righe sono separate dal separatore : e ogni riga ha
  * i valori delle colonne separati dalla , e racchiusi dalle parentesi tonde
  * NOTA: i valori delle celle della tabella possono essere caratteri
@@ -52,6 +52,10 @@ public class EsercizioParsing {
         if(command == CommandType.UNKNOWN){
             return true;
         }
+        
+        String numero = "22";
+        int trasformato = Integer.parseInt(numero);
+        
         return false;
     }
 

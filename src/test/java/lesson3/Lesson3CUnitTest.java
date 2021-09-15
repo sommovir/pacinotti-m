@@ -10,6 +10,7 @@ import it.cnr.paci.j4p.lesson3.esercizi.enums_parsing.EsercizioParsing;
 import it.cnr.paci.j4p.lesson3.esercizi.stringhe.RegistrationManager;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import org.junit.jupiter.api.Assertions;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -200,7 +201,7 @@ public class Lesson3CUnitTest {
 
         assertFalse(checkSyntax3, "Command TABLE, testando con: [command -speak ciao] e dovrebbe dirmi che NON è valido.. ma la vede valida.");
         assertFalse(checkSyntax4, "Command TABLE, testando con: [command -quit 10] e dovrebbe dirmi che NON è valido.. ma la vede valida.");
-        assertFalse(checkSyntax5, "Command TABLE, testando con: [command -table(Amici,0):(Temperatura,-3)] e dovrebbe dirmi che NON è valido.. ma la vede valida.");
+        assertFalse(checkSyntax5, "Command TABLE, testando con: [command -tableAmici,0)(Temperatura,-3)] e dovrebbe dirmi che NON è valido.. ma la vede valida.");
         assertFalse(checkSyntax6, "Command TABLE, testando con: [command -table (Amici,0):Temperatura,-3)] e dovrebbe dirmi che NON è valido.. ma la vede valida.");
         assertFalse(checkSyntax7, "Command TABLE, testando con: [command -table (Amici,0):(Temperatura,-3] e dovrebbe dirmi che NON è valido.. ma la vede valida.");
         assertFalse(checkSyntax8, "Command TABLE, testando con: [command-table (Amici,0):(Temperatura,-3] e dovrebbe dirmi che NON è valido.. ma la vede valida.");
@@ -222,7 +223,6 @@ public class Lesson3CUnitTest {
         int res3 = EsercizioParsing.countTableRow("(Viti,20):(Chiodi,43):(Maniglie,2");
         int res4 = EsercizioParsing.countTableRow("ciao:si,no");
         int res5 = EsercizioParsing.countTableRow("(Viti,20):Chiodi,43):(Maniglie,2)");
-
         assertEquals(res1, -1, "Ho passato a countTableRow come argomento: [null] e non mi restituisce -1");
         assertEquals(res2, -1, "Ho passato a countTableRow come argomento: [] e non mi restituisce -1");
         assertEquals(res3, -1, "Ho passato a countTableRow come argomento: [(Viti,20):(Chiodi,43):(Maniglie,2] e non mi restituisce -1");
