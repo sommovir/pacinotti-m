@@ -129,8 +129,9 @@ public class Lesson3EUnitTest {
         Vagone vagoneNullo2 = new Vagone(null, null, null);
 
         vagoneNullo2.setIdentificativo("13-AAG:GG-42");
-        vagoneNullo2.setMerce("P1");
         vagoneNullo2.setType(VagoneType.PASSEGGERI);
+        vagoneNullo2.setMerce("P1");
+        
 
         assertEquals(VagoneType.PASSEGGERI, vagoneNullo2.getType(), "avevo settato il vagone come vagone PASSEGGERI.. ma il getter mi da altro.");
         assertEquals("13-AAG:GG-42", vagoneNullo2.getIdentificativo(), "Ho settato l'id dovrebbe essere 13-AAG:GG-42, il getter il da altro. Vergogna.");
