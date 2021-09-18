@@ -129,8 +129,14 @@ public class Treno {
      * @param treno
      * @return 
      */
-    public Treno testMAIN(Treno treno){
-        return treno;
+    public Treno testMAIN(){
+        return null;
     }
+
+    public List<Vagone> getVagoni() {
+        return vagoni;
+    }
+    
+    
 
 }
