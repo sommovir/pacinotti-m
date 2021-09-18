@@ -19,9 +19,17 @@ package it.cnr.paci.j4p.lesson3.esercizi.liste_basic;
  *   - A è un carattere alfanumerico
  *   - B è una lista di lettere maiuscole dalla A alla S da 2 a 8 caratteri (TIP: si può usare la cardinalità {n,m}
  *   - C è un numero  x tale che x sia compreso tra 30 e 56 (estremi esclusi)
+ * es. 2A-fg3:OEKFFOFM-33
+ *     12-09G:JJKHFI-40
+ *   --------
+ *   se si tenta di settare null o empty, si setti a 'INVALID'
  * 
  * - merce: 
- *   se il valore è nullo si imposti a "VUOTO". 
+ *   se il valore è nullo si imposti a 'VUOTO'. 
+ *   se il vagone è di tipo passeggeri, il valore di merce deve essere 
+ *   il numero di passeggeri nel formato [numero]P, ad es. 23P
+ *   se il valore del tipo è Passeggeri e si tenta di inserire un valore
+ *   non valido, si metta 'INVALID'
  *   
  *   
  * @author sommovir
@@ -44,16 +52,7 @@ public class Vagone {
     
     
     /**
-     * A seconda dell'enum type si descriva la tipologia di vagone USANDO IL 
-     * METODO 'getDescription' DELL'ENUM VagoneType. 
-     * 
-     * In particolare, se siamo in una locomotiva l'output sarà:
-     *  - Questo vagone è una fantastica locomotiva
-     * Se è un vagone passeggeri:
-     *  - Questo vagone contiene persone di dubbia fiducia
-     * Se è un vagone merci:
-     *  - Questo vagone contiene merci di scambio
-     * 
+     * Ritorna la descrizione del tipo di vagone
      * @return 
      */
     public String getDescription(){
