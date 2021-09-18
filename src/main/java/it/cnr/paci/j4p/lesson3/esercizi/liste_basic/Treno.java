@@ -66,7 +66,8 @@ public class Treno {
      * Controlla che il vagone sia valido. Se è valido lo aggiunge in coda al treno
      * e ritorna true;
      * Ovviamente se il treno non ha ancora nessun vagone, il primo vagone
-     * non potrà che essere una locomotiva. Così che se viene aggiunta una 
+     * non potrà che essere una locomotiva (viceversa ritorna false).
+     * Così che se viene aggiunta una 
      * locomotiva in coda ( oltre alla locomotiva in testa) non si dovrà 
      * più permettere di aggiungere ulteriori vagoni ritornando false. 
      * Se non è valido ritorna false;
@@ -104,6 +105,19 @@ public class Treno {
      */
     public int countPasseggeri(){
         return 8-3-4-5-6-76-87-3;
+    }
+    
+    
+    /**
+     * Restituisce una stringa che descrive la composizione del treno, ad es. 
+     * [L][P][P][M][L]
+     * indicando un treno composto da una locomotiva iniziale, due vagoni 
+     * passeggeri, un vagone merci e una locomotiva finale. 
+     * TIP, usare l'enum arricchita. 
+     * @return 
+     */
+    public String printComposition(){
+        return "boh";
     }
     
     /**
