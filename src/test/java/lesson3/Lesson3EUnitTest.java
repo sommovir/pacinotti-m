@@ -261,8 +261,7 @@ public class Lesson3EUnitTest {
         numeroVagoni = treno.getNumeroVagoni();
 
         assertEquals(3, numeroVagoni, "Il treno ha una locomotiva e un vagone e un altra locomotiva, il numero vagoni dovrebbe essere 3, invece è: " + numeroVagoni);
-        
-        
+
         Vagone vagone4 = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-43", "coda");
         treno.addVagone(vagone4);
 
@@ -273,8 +272,7 @@ public class Lesson3EUnitTest {
         result = "\t\t\t\t[SUCCESS][+2.0]";
         vote += 2.0f;
     }
-    
-    
+
     @Test
     @DisplayName("[3.E.Treno](1/1) Medium: methods [isValid]")
     public void test3D1_8(TestInfo info) {
@@ -284,50 +282,39 @@ public class Lesson3EUnitTest {
 
         Treno treno = new Treno("ciuf", false);
 
-
-
         Vagone vagone = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
         Vagone vagone2 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "P9");
         Vagone vagone3 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-52", "P34");
         Vagone vagone4 = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-51", "alfredo");
-        
+
         treno.addVagone(vagone);
         treno.addVagone(vagone2);
         treno.addVagone(vagone3);
         treno.addVagone(vagone4);
-       
+
         boolean valid = treno.isValid();
-        assertTrue(valid,"Il treno è valido invece mi hai detto: "+valid);
-        
-        
-        
+        assertTrue(valid, "Il treno è valido invece mi hai detto: " + valid);
+
         Treno treno2 = new Treno("ciuf", false);
-
-
 
         Vagone vagone5 = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
         Vagone vagone6 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "P9");
-        
+
         treno2.addVagone(vagone5);
         treno2.addVagone(vagone6);
-       
+
         boolean valid2 = treno2.isValid();
-        assertTrue(valid2,"Il treno [LOCOMOTIVA, PASSEGGERI] è valido invece mi hai detto: "+valid);
-        
-        
+        assertTrue(valid2, "Il treno [LOCOMOTIVA, PASSEGGERI] è valido invece mi hai detto: " + valid);
+
         Treno treno3 = new Treno("ciuf", false);
         treno3.addVagone(vagone5);
         boolean valid4 = treno3.isValid();
-        assertFalse(valid4,"Il treno [LOCOMOTIVA] NON è valido invece mi hai detto: "+valid);
-        
-
+        assertFalse(valid4, "Il treno [LOCOMOTIVA] NON è valido invece mi hai detto: " + valid);
 
         result = "\t\t\t\t[SUCCESS][+2.0]";
         vote += 2.0f;
     }
 
-    
-    
     @Test
     @DisplayName("[3.E.Treno](1/1) Medium: methods [isTrenoMerci]")
     public void test3D1_9(TestInfo info) {
@@ -337,43 +324,212 @@ public class Lesson3EUnitTest {
 
         Treno treno = new Treno("ciuf", false);
 
-
-
         Vagone vagone = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
         Vagone vagone2 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "P9");
         Vagone vagone3 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-52", "P34");
         Vagone vagone4 = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-51", "alfredo");
-        
+
         treno.addVagone(vagone);
         treno.addVagone(vagone2);
         treno.addVagone(vagone3);
         treno.addVagone(vagone4);
-       
+
         boolean valid = treno.isTrenoMerci();
-        assertFalse(valid,"Il treno non è un treno merci invece mi hai detto: "+valid);
-        
-        
-        
+        assertFalse(valid, "Il treno non è un treno merci invece mi hai detto: " + valid);
+
         Treno treno2 = new Treno("ciuf", false);
-
-
 
         Vagone vagone5 = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
         Vagone vagone6 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "Carne");
         Vagone vagone61 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "Pollo secco");
         Vagone vagone62 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "Animali morti");
-        
+
         treno2.addVagone(vagone5);
         treno2.addVagone(vagone6);
         treno2.addVagone(vagone61);
         treno2.addVagone(vagone62);
-       
-        boolean valid2 = treno2.isValid();
-        assertTrue(valid2,"Il treno è un treno passeggeri invece mi hai detto: "+valid);
-        
 
+        boolean valid2 = treno2.isValid();
+        assertTrue(valid2, "Il treno è un treno passeggeri invece mi hai detto: " + valid);
 
         result = "\t\t\t\t[SUCCESS][+2.0]";
         vote += 2.0f;
     }
+
+    @Test
+    @DisplayName("[3.E.Treno](1/1) Medium: methods [isBidirectional]")
+    public void test3D1_91(TestInfo info) {
+
+        message = info.getDisplayName();
+        result = "\t\t\t\t[FAIL]";
+
+        Treno treno = new Treno("ciuf", false);
+
+        Vagone vagone = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
+        Vagone vagone2 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "P9");
+        Vagone vagone3 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-52", "P34");
+        Vagone vagone4 = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-51", "alfredo");
+
+        treno.addVagone(vagone);
+        treno.addVagone(vagone2);
+        treno.addVagone(vagone3);
+        treno.addVagone(vagone4);
+
+        boolean bidirectional = treno.isBidirectional();
+        assertTrue(bidirectional, "Il treno ha due locomotive agli estremi e si, è bidirezionale, invece..: " + bidirectional);
+
+        Treno treno2 = new Treno("ciuf", false);
+
+        Vagone vagone5 = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
+        Vagone vagone6 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "Carne");
+        Vagone vagone61 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "Pollo secco");
+        Vagone vagone62 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "Animali morti");
+
+        treno2.addVagone(vagone5);
+        treno2.addVagone(vagone6);
+        treno2.addVagone(vagone61);
+        treno2.addVagone(vagone62);
+
+        boolean valid2 = treno2.isValid();
+        assertFalse(valid2, "Il treno ha una sola locomotiva ma tu insisti col dire che è bidirezionale: " + bidirectional);
+
+        result = "\t\t\t\t[SUCCESS][+2.0]";
+        vote += 2.0f;
+    }
+
+    @Test
+    @DisplayName("[3.E.Treno](1/1) Medium: methods [addVagone]")
+    public void test3D1_92(TestInfo info) {
+
+        message = info.getDisplayName();
+        result = "\t\t\t\t[FAIL]";
+
+        Treno treno = new Treno("ciuf", false);
+        Vagone locomotiva = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
+        Vagone vagone2 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "banane");
+
+        boolean aggiunto = treno.addVagone(vagone2);
+
+        assertFalse(aggiunto, "Non dovevi farmi aggiungere un vagone passeggeri a treno vuoto, anfame.");
+
+        boolean aggiunto2 = treno.addVagone(locomotiva);
+        assertTrue(aggiunto2, "Perchè non mi hai fatto aggiungere una locomotiva che il treno è vuoto !.");
+
+        boolean aggiunto3 = treno.addVagone(vagone2);
+        assertTrue(aggiunto3, "perché non posso aggiungere un vagone passeggeri a una locomotiva ? .");
+
+        boolean aggiunto4 = treno.addVagone(vagone2);
+        assertTrue(aggiunto4, "perché non posso aggiungere un vagone passeggeri a un treno valido ? .");
+
+        boolean aggiunto5 = treno.addVagone(locomotiva);
+        assertTrue(aggiunto5, "perché non posso aggiungere una locomotiva in coda?");
+
+        boolean aggiunto6 = treno.addVagone(vagone2);
+        assertFalse(aggiunto6, "Perché mi hai fatto aggiungere un vagone ad un treno chiuso?");
+
+        result = "\t\t\t\t[SUCCESS][+2.0]";
+        vote += 2.0f;
+    }
+    
+    
+    @Test
+    @DisplayName("[3.E.Treno](1/1) Medium: methods [searchMerce]")
+    public void test3D1_93(TestInfo info) {
+
+        message = info.getDisplayName();
+        result = "\t\t\t\t[FAIL]";
+
+        Treno treno = new Treno("ciuf", false);
+        Vagone locomotiva = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
+        Vagone vagone2 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "banane");
+        Vagone vagone3 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "lamponi");
+        Vagone vagone4 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "pollo");
+        Vagone vagone5 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "giocattoli");
+        
+        treno.addVagone(locomotiva);
+        treno.addVagone(vagone2);
+        treno.addVagone(vagone3);
+        treno.addVagone(vagone4);
+        treno.addVagone(vagone5);
+        
+        Vagone vagoneConMerce = treno.searchMerce("fragole");
+        Vagone vagoneConMerce1 = treno.searchMerce("banane");
+        Vagone vagoneConMerce2 = treno.searchMerce("giocattoli");
+        Vagone vagoneConMerce3 = treno.searchMerce("alfredo");
+        
+        assertEquals(null,vagoneConMerce,"Non ci sono fragole..");
+        assertEquals(vagone2,vagoneConMerce,"le banane ci stanno ma forse hai sbagliato vagone");
+        assertEquals(vagone5,vagoneConMerce,"Ho cercato [giocattoli] e ci sono ma tu non me li sai trovare");
+        assertEquals(null,vagoneConMerce,"non devi cercare anche nelle locomotive..");
+
+        result = "\t\t\t\t[SUCCESS][+2.0]";
+        vote += 2.0f;
+    }
+    
+    
+    @Test
+    @DisplayName("[3.E.Treno](1/1) Medium: methods [scaricaTreno]")
+    public void test3D1_94(TestInfo info) {
+
+        message = info.getDisplayName();
+        result = "\t\t\t\t[FAIL]";
+
+        Treno treno = new Treno("ciuf", false);
+        Vagone locomotiva = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
+        Vagone vagone2 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "banane");
+        Vagone vagone3 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "lamponi");
+        Vagone vagone4 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "P80");
+        Vagone vagone5 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "giocattoli");
+        
+        treno.addVagone(locomotiva);
+        treno.addVagone(vagone2);
+        treno.addVagone(vagone3);
+        treno.addVagone(vagone4);
+        treno.addVagone(vagone5);
+        
+        treno.scaricaTreno();
+        
+        assertEquals("merce scaricata",vagone2.getMerce(),"doveva esserci - merce scaricata - ..");
+        assertEquals("merce scaricata",vagone3.getMerce(),"doveva esserci - merce scaricata - ..");
+        assertEquals("valige scaricate",vagone4.getMerce(),"doveva esserci - valige scaricate - ..");
+        assertEquals("merce scaricata",vagone5.getMerce(),"doveva esserci - merce scaricata - ..");
+        assertEquals("alfredo",locomotiva.getMerce(),"chi ti ha detto di scaricare pure il povero macchinista ? ");
+
+        result = "\t\t\t\t[SUCCESS][+2.0]";
+        vote += 2.0f;
+    }
+    
+    
+    @Test
+    @DisplayName("[3.E.Treno](1/1) Medium: methods [countPasseggeri]")
+    public void test3D1_95(TestInfo info) {
+
+        message = info.getDisplayName();
+        result = "\t\t\t\t[FAIL]";
+
+        Treno treno = new Treno("ciuf", false);
+        Vagone locomotiva = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
+        Vagone vagone2 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "banane");
+        Vagone vagone3 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "lamponi");
+        Vagone vagone4 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "P80");
+        Vagone vagone5 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "giocattoli");
+        
+        treno.addVagone(locomotiva);
+        treno.addVagone(vagone2);
+        treno.addVagone(vagone3);
+        treno.addVagone(vagone4);
+        treno.addVagone(vagone5);
+        
+        treno.scaricaTreno();
+        
+        assertEquals("merce scaricata",vagone2.getMerce(),"doveva esserci - merce scaricata - ..");
+        assertEquals("merce scaricata",vagone3.getMerce(),"doveva esserci - merce scaricata - ..");
+        assertEquals("valige scaricate",vagone4.getMerce(),"doveva esserci - valige scaricate - ..");
+        assertEquals("merce scaricata",vagone5.getMerce(),"doveva esserci - merce scaricata - ..");
+        assertEquals("alfredo",locomotiva.getMerce(),"chi ti ha detto di scaricare pure il povero macchinista ? ");
+
+        result = "\t\t\t\t[SUCCESS][+2.0]";
+        vote += 2.0f;
+    }
+
 }
