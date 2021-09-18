@@ -118,8 +118,9 @@ public class Lesson3EUnitTest {
 
         Vagone vagoneNullo = new Vagone();
         vagoneNullo.setIdentificativo("13-AAG:GG-42");
-        vagoneNullo.setMerce("Banane");
         vagoneNullo.setType(VagoneType.MERCI);
+        vagoneNullo.setMerce("Banane");
+        
 
         assertEquals(VagoneType.MERCI, vagoneNullo.getType(), "avevo settato il vagone come vagone merci.. ma il getter mi da altro.");
         assertEquals("13-AAG:GG-42", vagoneNullo.getIdentificativo(), "Ho settato l'id dovrebbe essere 13-AAG:GG-42, il getter il da altro. Vergogna.");
