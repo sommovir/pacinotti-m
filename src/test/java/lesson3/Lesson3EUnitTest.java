@@ -193,8 +193,8 @@ public class Lesson3EUnitTest {
         assertEquals(INVALID, vagoneInvalido5.getIdentificativo(), "Ho settato l'id con [13-AAG:GGGG-27] dovrebbe essere INVALID, il getter il da altro. Vergogna.");
         assertEquals(INVALID, vagoneInvalido5.getMerce(), "Usando il setter ho settato Alfonso  nel campo merce, dovrebbe darmi INVALID. AHAH fregato male");
 
-        result = "\t\t\t\t[SUCCESS][+2.0]";
-        vote += 2.0f;
+        result = "\t\t\t\t[SUCCESS][+3.0]";
+        vote += 3.0f;
     }
 
     @Test
