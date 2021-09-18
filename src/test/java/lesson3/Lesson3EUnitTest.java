@@ -365,7 +365,7 @@ public class Lesson3EUnitTest {
 
         Treno treno = new Treno("ciuf", false);
 
-        Vagone vagone = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
+        Vagone vagone = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-55", "alfredo");
         Vagone vagone2 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "P9");
         Vagone vagone3 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-52", "P34");
         Vagone vagone4 = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-51", "alfredo");
@@ -380,7 +380,7 @@ public class Lesson3EUnitTest {
 
         Treno treno2 = new Treno("ciuf", false);
 
-        Vagone vagone5 = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
+        Vagone vagone5 = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-55", "alfredo");
         Vagone vagone6 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "Carne");
         Vagone vagone61 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "Pollo secco");
         Vagone vagone62 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "Animali morti");
@@ -405,7 +405,7 @@ public class Lesson3EUnitTest {
         result = "\t\t\t\t[FAIL]";
 
         Treno treno = new Treno("ciuf", false);
-        Vagone locomotiva = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
+        Vagone locomotiva = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-55", "alfredo");
         Vagone vagone2 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "banane");
 
         boolean aggiunto = treno.addVagone(vagone2);
@@ -508,25 +508,82 @@ public class Lesson3EUnitTest {
         result = "\t\t\t\t[FAIL]";
 
         Treno treno = new Treno("ciuf", false);
-        Vagone locomotiva = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-56", "alfredo");
-        Vagone vagone2 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "banane");
-        Vagone vagone3 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "lamponi");
+        Vagone locomotiva = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-55", "alfredo");
+        Vagone vagone2 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "P1");
+        Vagone vagone3 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "P20");
         Vagone vagone4 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "P80");
-        Vagone vagone5 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "giocattoli");
+        Vagone vagone5 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "VUOTO");
+        Vagone vagone6 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "giocattoli");
         
         treno.addVagone(locomotiva);
         treno.addVagone(vagone2);
         treno.addVagone(vagone3);
         treno.addVagone(vagone4);
         treno.addVagone(vagone5);
+        treno.addVagone(vagone6);
         
-        treno.scaricaTreno();
+        int countPasseggeri = treno.countPasseggeri();
         
-        assertEquals("merce scaricata",vagone2.getMerce(),"doveva esserci - merce scaricata - ..");
-        assertEquals("merce scaricata",vagone3.getMerce(),"doveva esserci - merce scaricata - ..");
-        assertEquals("valige scaricate",vagone4.getMerce(),"doveva esserci - valige scaricate - ..");
-        assertEquals("merce scaricata",vagone5.getMerce(),"doveva esserci - merce scaricata - ..");
-        assertEquals("alfredo",locomotiva.getMerce(),"chi ti ha detto di scaricare pure il povero macchinista ? ");
+        assertEquals(101,countPasseggeri,"doveva esserci - merce scaricata - ..");
+
+        result = "\t\t\t\t[SUCCESS][+2.0]";
+        vote += 2.0f;
+    }
+    
+    
+    @Test
+    @DisplayName("[3.E.Treno](1/1) Medium: methods [printComposition]")
+    public void test3D1_96(TestInfo info) {
+
+        message = info.getDisplayName();
+        result = "\t\t\t\t[FAIL]";
+
+        Treno treno = new Treno("ciuf", false);
+        Vagone locomotiva = new Vagone(VagoneType.LOCOMOTIVA, "12-09G:JJKHFI-55", "alfredo");
+        Vagone vagone2 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "P1");
+        Vagone vagone3 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "P20");
+        Vagone vagone4 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "P80");
+        Vagone vagone5 = new Vagone(VagoneType.PASSEGGERI, "12-09G:JJKHFI-53", "VUOTO");
+        Vagone vagone6 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-53", "giocattoli");
+        
+        treno.addVagone(locomotiva);
+        treno.addVagone(vagone2);
+        treno.addVagone(vagone3);
+        treno.addVagone(vagone4);
+        treno.addVagone(vagone5);
+        treno.addVagone(vagone6);
+        
+        String printComposition = treno.printComposition();
+        
+        assertEquals("[L][P][P][P][P][M]",printComposition,"doveva esserci - merce scaricata - ..");
+
+        result = "\t\t\t\t[SUCCESS][+2.0]";
+        vote += 2.0f;
+    }
+    
+    
+    
+    @Test
+    @DisplayName("[3.E.Treno](1/1) Medium: methods [testMain]")
+    public void test3D1_97(TestInfo info) {
+
+        message = info.getDisplayName();
+        result = "\t\t\t\t[FAIL]";
+
+        Treno treno = new Treno();
+        Treno resultTrain = treno.testMAIN();
+//         Si crei un treno bidirezionale con 7 vagoni (oltre le locomotive) così composto:
+//     * I primi 4 vagoni sono vagoni passeggeri.
+//     * Poi abbiamo 2 vagoni merci contenenti come merce, "Cianfrusaglie"
+//     * "Bombe a mano"
+//     * Poi un vagone me
+        String printComposition = resultTrain.printComposition();
+        
+        assertEquals("[L][P][P][P][P][M][M][M][L]",printComposition,"doveva esserci - merce scaricata - ..");
+        
+        assertEquals("Cianfrusaglie",resultTrain.getVagoni().get(5).getMerce(),"Non ci sono le Cianfrusaglie qui");
+        assertEquals("Bombe a mano",resultTrain.getVagoni().get(5).getMerce(),"Non ci sono le Bombe a mano qui");
+        assertEquals("VUOTO",resultTrain.getVagoni().get(5).getMerce(),"Non ci sono le Cianfrusaglie qui");
 
         result = "\t\t\t\t[SUCCESS][+2.0]";
         vote += 2.0f;
