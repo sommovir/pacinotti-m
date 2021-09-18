@@ -6,7 +6,8 @@
 package it.cnr.paci.j4p.lesson3.esercizi.stringhe;
 
 /**
- *
+ * Completare l'incapsulamento di questa classe. L'attributo phoneNumber non 
+ * necessita di essere controllato, va bene anche null.
  * @author sommovir
  */
 public class Account {

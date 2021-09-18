@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.cnr.paci.j4p.lesson4.ereditarieta.robot;
+package it.cnr.istc.i18n;
 
 /**
  *
  * @author sommovir
  */
-public abstract class LanguageProcessor {
-
-    public abstract String parla(Condition condition);
-
+public interface I18N {
+    
 }

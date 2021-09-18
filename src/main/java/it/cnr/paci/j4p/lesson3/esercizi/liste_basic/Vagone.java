@@ -7,7 +7,7 @@ package it.cnr.paci.j4p.lesson3.esercizi.liste_basic;
 
 /**
  *
- * 3F - Vagone
+ * 3E - Vagone
  * Si completi la classe realizzando l'incapsulamento nel seguente modo: 
  * - type:
  *   Per l'attributo type, se viene passato null, si imposti di default come 
@@ -27,9 +27,11 @@ package it.cnr.paci.j4p.lesson3.esercizi.liste_basic;
  * - merce: 
  *   se il valore è nullo si imposti a 'VUOTO'. 
  *   se il vagone è di tipo passeggeri, il valore di merce deve essere 
- *   il numero di passeggeri nel formato [numero]P, ad es. 23P
+ *   il numero di passeggeri nel formato P[numero], ad es. P23
  *   se il valore del tipo è Passeggeri e si tenta di inserire un valore
  *   non valido, si metta 'INVALID'
+ * 
+ * Se il vagone è di tipo Locomotiva, il campo "merce" si può ignorare
  *   
  *   
  * @author sommovir

@@ -37,8 +37,12 @@ public class MilitaryOrder {
 
     private String commander;
     private String order;
+    
+    private static final String INVALID = "INVALID";
 
     public MilitaryOrder() {
+        this.commander = INVALID;
+        this.order = INVALID;
     }
 
     public MilitaryOrder(String commander, String order) {

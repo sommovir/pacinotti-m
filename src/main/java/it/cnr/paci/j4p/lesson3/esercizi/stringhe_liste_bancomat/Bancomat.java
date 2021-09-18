@@ -107,7 +107,7 @@ public class Bancomat {
      * @param cardNumber il numero della carta da verificare (se non null, la si
      * suppone valida)
      * @return true, se la la carta cardNumber ha lo stesso codice di quella
-     * registrata in user. Null viceversa o se uno dei due parametri del metodo
+     * registrata in user. False viceversa o se uno dei due parametri del metodo
      * è null (attenzione ai sottoparametri) o nel caso del seconto parametro
      * anche se empty TIP: date un occhio al metodo "replace" ;)
      */

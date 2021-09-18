@@ -47,6 +47,32 @@ public class Torpedo {
     public void setShockFactor(float shockFactor) {
         this.shockFactor = shockFactor;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null){
+            return false;
+        }
+        if(!(obj instanceof Torpedo)){
+            return false;
+        }
+        if(this.name.equals(((Torpedo)obj).getName()) &&
+                (this.range == (((Torpedo)obj).getRange()) && 
+                (this.shockFactor == (((Torpedo)obj).shockFactor)))
+                ){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
+    
     
     
 }

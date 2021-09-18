@@ -6,6 +6,7 @@
 package it.cnr.paci.j4p.lesson3.esercizi.liste_basic;
 
 /**
+ * 3E - VagoneType
  * A seconda dell'enum type si descriva la tipologia di vagone USANDO IL METODO
  * 'getDescription' DELL'ENUM VagoneType.
  *

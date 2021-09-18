@@ -10,12 +10,13 @@ package it.cnr.paci.j4p.lesson4.ereditarieta.animale;
  * @author sommovir
  */
 public class Balena extends Mammiferi{
-
-    public Balena() {
-        super("Balena");
-    }
-
     
+    private int weight;
+
+    public Balena(int weight) {
+        super("Balena");
+        this.weight = weight;
+    }
     
     @Override
     public boolean isAquatic() {
