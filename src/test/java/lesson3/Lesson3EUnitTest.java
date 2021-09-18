@@ -222,7 +222,7 @@ public class Lesson3EUnitTest {
 
         numeroVagoni = treno.getNumeroVagoni();
 
-        assertEquals(1, numeroVagoni, "Il treno ha una locomotiva e un vagone, il numero vagoni dovrebbe essere 2, invece è: " + numeroVagoni);
+        assertEquals(1, numeroVagoni, "Il treno ha una locomotiva e un vagone, il numero vagoni dovrebbe essere 1, invece è: " + numeroVagoni);
 
         result = "\t\t\t\t[SUCCESS][+3.0]";
         vote += 3.0f;
