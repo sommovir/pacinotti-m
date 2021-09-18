@@ -98,12 +98,12 @@ public class Lesson3EUnitTest {
 
         assertEquals(VagoneType.PASSEGGERI, vagoneNullo2.getType(), "Ho usato il costruttore con args nulli e il Type del vagone dovrebbe eessere Passeggeri");
         assertEquals("INVALID", vagoneNullo2.getIdentificativo(), "Ho usato il costruttore con args nulli e l'indentificativo dovrebbe essere INVALID");
-        assertEquals("VUOTO", vagoneNullo2.getMerce(), "Ho usato il costruttore con args nulli e il campo merce dovrebbe essere VUOTO");
+        assertEquals("INVALID", vagoneNullo2.getMerce(), "Ho usato il costruttore con args nulli e il campo merce dovrebbe essere VUOTO");
 
         Vagone vagoneNullo3 = new Vagone(null, "", "");
 
         assertEquals("INVALID", vagoneNullo3.getIdentificativo(), "Ho usato il costruttore con args vuoti e l'indentificativo dovrebbe essere INVALID");
-        assertEquals("VUOTO", vagoneNullo3.getMerce(), "Ho usato il costruttore con args vuoti e il campo merce dovrebbe essere VUOTO");
+        assertEquals("INVALID", vagoneNullo3.getMerce(), "Ho usato il costruttore con args vuoti e il campo merce dovrebbe essere VUOTO");
 
         result = "\t\t\t\t[SUCCESS][+2.0]";
         vote += 2.0f;
