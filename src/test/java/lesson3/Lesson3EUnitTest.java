@@ -21,7 +21,7 @@ import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.Disabled;
 
-@Disabled
+//@Disabled
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
 public class Lesson3EUnitTest {
 
