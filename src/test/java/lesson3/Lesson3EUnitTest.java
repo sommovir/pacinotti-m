@@ -215,14 +215,14 @@ public class Lesson3EUnitTest {
 
         numeroVagoni = treno.getNumeroVagoni();
 
-        assertEquals(1, numeroVagoni, "Il treno ha solo la locomativo, il numero vagoni dovrebbe essere 1, invece è: " + numeroVagoni);
+        assertEquals(0, numeroVagoni, "Il treno ha solo la locomativo, il numero vagoni dovrebbe essere 0, invece è: " + numeroVagoni);
 
         Vagone vagone2 = new Vagone(VagoneType.MERCI, "12-09G:JJKHFI-55", "frutta e verdura");
         treno.addVagone(vagone2);
 
         numeroVagoni = treno.getNumeroVagoni();
 
-        assertEquals(2, numeroVagoni, "Il treno ha una locomotiva e un vagone, il numero vagoni dovrebbe essere 2, invece è: " + numeroVagoni);
+        assertEquals(1, numeroVagoni, "Il treno ha una locomotiva e un vagone, il numero vagoni dovrebbe essere 2, invece è: " + numeroVagoni);
 
         result = "\t\t\t\t[SUCCESS][+3.0]";
         vote += 3.0f;
